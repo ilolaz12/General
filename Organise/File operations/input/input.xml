@@ -1,0 +1,13 @@
+<staffing>
+  <person familyname='dekeyser'>
+    <hobby>soccer</hobby>
+    <hobby>under water hockey</hobby>
+    <bio>Obtained his PhD from the <i>University of Antwerp</i> 
+       in 2003. His interests include database theory and 
+       metadata filesystems.</bio>
+  </person>
+  <person familyname='mengel'>
+    <givenname>Matthew</givenname>
+    <bio>PhD from USQ in the field of <strong>Astrophysics</strong>.</bio>
+  </person>
+</staffing>

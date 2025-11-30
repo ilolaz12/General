@@ -1,0 +1,29 @@
+/* basic.c - this  is a basic C program */
+
+#include <stdio.h> 
+#include <stdlib.h>
+
+// function prototype
+void printMessage(short NumTimes);
+
+// main entry point 
+int main()
+{
+    char userBuf[100]; 
+    short numTimesToPrint;
+
+    printf("How many times do you want it printed?\n"); 
+    gets(userBuf);
+    numTimesToPrint = atoi(userBuf);
+    printMessage(numTimesToPrint);
+    return 0;
+}
+
+void printMessage(short numTimes)
+{
+    short numMessages;
+    for(numMessages = 0; numMessages<numTimes; numMessages++)
+    {
+        printf("This is message number %d\n", numMessages);
+    }
+}

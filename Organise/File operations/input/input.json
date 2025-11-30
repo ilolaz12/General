@@ -1,0 +1,15 @@
+{
+    "firstName": "Stijn",
+    "lastName": "Dekeyser",
+    "gender": "man",
+    "address": {
+        "streetAddress": "7712 52nd Ave East",
+        "city": "Puyallup",
+        "state": "WA",
+        "postalCode": "98443"
+    },
+    "phoneNumbers": [
+        { "type": "home", "number": "04123456789" },
+        { "type": "work", "number": "987654321" }
+    ]
+}
