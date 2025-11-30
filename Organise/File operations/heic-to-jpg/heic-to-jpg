@@ -1,0 +1,3 @@
+#import heic-to-jpg
+
+heic-to-jpg -s /Documents/Py/heic-to-jpg/ --keep

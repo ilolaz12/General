@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<targetImage fileVersion="1.1" is64bit="false">
+	<compilerSupport deviceFeatures="0x8FFFFDFF" extendedDeviceFeatures="0xFFFFFFF"/>
+	<info targetID="0x8F66297B" memoryID="0x2EE" fullMemoryID="0xC0DF">
+		<features deviceFeatures="0x8F66297B" extendedDeviceFeatures="0x28D178B"/>
+		<codeArea address="0x3001E400" size="0x1E400" addrArea1="0x30000000" addrArea2="0x3001E400"/>
+		<dataArea address="0x20000298" size="0x1FC00"/>
+		<auxDataArea address="0x0" size="0x0"/>
+		<bitDataArea address="0x0" size="0x0"/>
+		<retainDataArea address="0x38000800" size="0x400"/>
+		<debug address="0x3003C800" size="0x1000" traceAreaAddress="0x3003D800" traceAreaSize="0x2800"/>
+		<stack limit="0x0"/>
+		<dynTask dimDynTaskTCB="0x0"/>
+		<functionTable address="0x0"/>
+		<sourceCode supported="1" address="0x0" size="0x0"/>
+	</info>
+	<tasks controlBitsAddress="0x24017EE9">
+		<task index="0" name="Fast" flags="0x17C" period="0"/>
+		<task index="1" name="Slow" flags="0x178" period="0"/>
+		<task index="2" name="Background" flags="0x178" period="0"/>
+		<task index="3" name="Init" flags="0x78" period="0"/>
+		<task index="4" name="MbBoot" flags="0x0" period="0"/>
+		<task index="5" name="MbMPrm" flags="0x0" period="0"/>
+		<task index="6" name="COPMBoot" flags="0x0" period="0"/>
+		<task index="7" name="COPMEvent" flags="0x0" period="0"/>
+		<task index="8" name="COPMParam" flags="0x0" period="0"/>
+	</tasks>
+	<dataBlocks address="0x80A09D0" size="27" userSize="9" userPluginsSize="18">
+		<dataBlock index="0" type="memory" address="0x2401E130" image="0" size="4096" elementSize="1" access="readWrite" flags="0x01"/>
+		<dataBlock index="200" type="memory" address="0x2401F536" image="0" size="512" elementSize="2" access="readWrite" flags="0x00"/>
+		<dataBlock index="201" type="memory" address="0x2401F130" image="0" size="512" elementSize="2" access="readWrite" flags="0x00"/>
+		<dataBlock index="60000" type="memory" address="0x2401F530" image="0" size="1" elementSize="4" access="read" flags="0x00"/>
+		<dataBlock index="60006" type="memory" address="0x40000C24" image="0" size="1" elementSize="4" access="read" flags="0x00"/>
+		<dataBlock index="60007" type="memory" address="0x2401F534" image="0" size="1" elementSize="1" access="read" flags="0x00"/>
+		<dataBlock index="60008" type="memory" address="0x240126A4" image="0" size="1" elementSize="1" access="read" flags="0x00"/>
+		<dataBlock index="4" type="input" address="0x38000000" image="0" size="512" elementSize="1" access="read" flags="0x01"/>
+		<dataBlock index="4" type="output" address="0x38000200" image="0" size="512" elementSize="1" access="readWrite" flags="0x01"/>
+		<dataBlock index="100" type="memory" address="0x24020EA0" image="0" size="2048" elementSize="1" access="read" flags="0x01"/>
+		<dataBlock index="101" type="memory" address="0x240206A0" image="0" size="2048" elementSize="1" access="readWrite" flags="0x01"/>
+		<dataBlock index="60010" type="input" address="0x240217BC" image="0" size="1" elementSize="20" access="read" flags="0x00"/>
+		<dataBlock index="60012" type="input" address="0x240216A0" image="0" size="2" elementSize="16" access="read" flags="0x01"/>
+		<dataBlock index="102" type="memory" address="0x24019A41" image="0" size="4096" elementSize="1" access="read" flags="0x01"/>
+		<dataBlock index="103" type="memory" address="0x2401AA41" image="0" size="4096" elementSize="1" access="readWrite" flags="0x01"/>
+		<dataBlock index="60020" type="input" address="0x240217DC" image="0" size="17" elementSize="32" access="read" flags="0x01"/>
+		<dataBlock index="60021" type="input" address="0x2401BA5E" image="0" size="1" elementSize="8" access="read" flags="0x00"/>
+		<dataBlock index="0" type="input" address="0x2402061C" image="0" size="8" elementSize="1" access="read" flags="0x01"/>
+		<dataBlock index="0" type="output" address="0x24020608" image="0" size="8" elementSize="1" access="readWrite" flags="0x01"/>
+		<dataBlock index="1" type="input" address="0x24020624" image="0" size="3" elementSize="4" access="read" flags="0x01"/>
+		<dataBlock index="1" type="output" address="0x24020690" image="0" size="4" elementSize="4" access="readWrite" flags="0x01"/>
+		<dataBlock index="2" type="input" address="0x24020630" image="0" size="3" elementSize="32" access="read" flags="0x01"/>
+		<dataBlock index="3" type="memory" address="0x24020610" image="0" size="12" elementSize="1" access="readWrite" flags="0x01"/>
+		<dataBlock index="5" type="input" address="0x240205F0" image="0" size="2" elementSize="12" access="read" flags="0x01"/>
+		<dataBlock index="60002" type="input" address="0x24022658" image="0" size="1" elementSize="48" access="read" flags="0x00"/>
+		<dataBlock index="60004" type="input" address="0x24022694" image="0" size="1" elementSize="20" access="read" flags="0x00"/>
+		<dataBlock index="60005" type="input" address="0x24022688" image="0" size="1" elementSize="12" access="read" flags="0x00"/>
+	</dataBlocks>
+	<functions address="0x80A0A60" size="248" userSize="34" userPluginsSize="61">
+		<function name="_plcerror" address="0x8074BDD"/>
+		<function name="sysLogWriteMsg" address="0x807A865"/>
+		<function name="sysSleep" address="0x8077623"/>
+		<function name="_ret_max_val" address="0x807754B"/>
+		<function name="_ret_min_val" address="0x8077565"/>
+		<function name="_ret_max_limit" address="0x8077581"/>
+		<function name="_ret_min_limit" address="0x807759B"/>
+		<function name="_ret_max_val_lreal" address="0x80775B7"/>
+		<function name="_ret_min_val_lreal" address="0x80775D1"/>
+		<function name="_ret_max_limit_lreal" address="0x80775ED"/>
+		<function name="_ret_min_limit_lreal" address="0x8077607"/>
+		<function name="_do_lint_div" address="0x807750D"/>
+		<function name="_do_lint_mod" address="0x8077515"/>
+		<function name="_do_ulint_div" address="0x8077521"/>
+		<function name="_do_ulint_mod" address="0x8077529"/>
+		<function name="_do_ulint_mul" address="0x8077535"/>
+		<function name="_lint_to_float" address="0x8077543"/>
+		<function name="_memcopy" address="0x808FF45"/>
+		<function name="sysDBase_SetExtTable" address="0x80760A5"/>
+		<function name="sysWriteParDINT" address="0x807596D"/>
+		<function name="sysWriteParDWORD" address="0x8075973"/>
+		<function name="sysWriteParUDINT" address="0x8075979"/>
+		<function name="sysWriteParUINT" address="0x807597F"/>
+		<function name="sysWriteParWORD" address="0x8075985"/>
+		<function name="sysWriteParINT" address="0x807598B"/>
+		<function name="sysWriteParBYTE" address="0x8075991"/>
+		<function name="sysWriteParUSINT" address="0x8075997"/>
+		<function name="sysWriteParSINT" address="0x807599D"/>
+		<function name="sysWriteParULINT" address="0x80759A3"/>
+		<function name="sysWriteParLINT" address="0x80759AB"/>
+		<function name="sysWriteParBOOL" address="0x80759B3"/>
+		<function name="sysWriteParREAL" address="0x80759B9"/>
+		<function name="sysWriteParSTRING" address="0x80759BF"/>
+		<function name="sysDBase_SaveAll" address="0x807627D"/>
+		<function name="CONCAT_DATE" address="0x807A5BD"/>
+		<function name="CONCAT_LDATE" address="0x807A579"/>
+		<function name="DAY_OF_WEEK_DATE" address="0x8078C81"/>
+		<function name="DAY_OF_WEEK_LDATE" address="0x8078C49"/>
+		<function name="SPLIT_DATE" address="0x807A259"/>
+		<function name="SPLIT_LDATE" address="0x807A201"/>
+		<function name="LDATE_TO_DATE" address="0x8078191"/>
+		<function name="LDT_TO_DT" address="0x80781C9"/>
+		<function name="CONCAT_DT" address="0x807A545"/>
+		<function name="CONCAT_LDT" address="0x807A4D9"/>
+		<function name="SPLIT_DT" address="0x807A1A5"/>
+		<function name="SPLIT_LDT" address="0x807A061"/>
+		<function name="DT_TO_TOD" address="0x807A02D"/>
+		<function name="LDT_TO_TOD" address="0x8079FB9"/>
+		<function name="DT_TO_LTOD" address="0x8079F7D"/>
+		<function name="LDT_TO_LTOD" address="0x8079F09"/>
+		<function name="LTOD_TO_TOD" address="0x80781CD"/>
+		<function name="TOD_TO_LTOD" address="0x80781E9"/>
+		<function name="CONCAT_DATE_TOD" address="0x80781FD"/>
+		<function name="CONCAT_DATE_LTOD" address="0x8078215"/>
+		<function name="CONCAT_TOD" address="0x8079041"/>
+		<function name="CONCAT_LTOD" address="0x8079079"/>
+		<function name="SPLIT_TOD" address="0x8079125"/>
+		<function name="SPLIT_LTOD" address="0x8079179"/>
+		<function name="UDINT_TO_REAL" address="0x8077E0D"/>
+		<function name="DINT_TO_REAL" address="0x8077E1B"/>
+		<function name="REAL_TO_UDINT" address="0x8077E29"/>
+		<function name="REAL_TO_DINT" address="0x8077E37"/>
+		<function name="ULINT_TO_REAL" address="0x8077E45"/>
+		<function name="LINT_TO_REAL" address="0x8077E4D"/>
+		<function name="REAL_TO_ULINT" address="0x8077E55"/>
+		<function name="REAL_TO_LINT" address="0x8077E5D"/>
+		<function name="ADD_REAL" address="0x8077E65"/>
+		<function name="SUB_REAL" address="0x8077E77"/>
+		<function name="MUL_REAL" address="0x8077E89"/>
+		<function name="DIV_REAL" address="0x8077E9B"/>
+		<function name="GT_REAL" address="0x8077EAD"/>
+		<function name="GE_REAL" address="0x8077EC5"/>
+		<function name="EQ_REAL" address="0x8077EDD"/>
+		<function name="LT_REAL" address="0x8077EF5"/>
+		<function name="LE_REAL" address="0x8077F0D"/>
+		<function name="NE_REAL" address="0x8077F25"/>
+		<function name="UDINT_TO_LREAL" address="0x8077F3D"/>
+		<function name="DINT_TO_LREAL" address="0x8077F4B"/>
+		<function name="LREAL_TO_UDINT" address="0x8077F59"/>
+		<function name="LREAL_TO_DINT" address="0x8077F67"/>
+		<function name="ULINT_TO_LREAL" address="0x8077F75"/>
+		<function name="LINT_TO_LREAL" address="0x8077F7D"/>
+		<function name="LREAL_TO_ULINT" address="0x8077F85"/>
+		<function name="LREAL_TO_LINT" address="0x8077F8D"/>
+		<function name="LREAL_TO_REAL" address="0x8077FA3"/>
+		<function name="REAL_TO_LREAL" address="0x8077F95"/>
+		<function name="ADD_LREAL" address="0x8077FB1"/>
+		<function name="SUB_LREAL" address="0x8077FC3"/>
+		<function name="MUL_LREAL" address="0x8077FD5"/>
+		<function name="DIV_LREAL" address="0x8077FE7"/>
+		<function name="GT_LREAL" address="0x8077FF9"/>
+		<function name="GE_LREAL" address="0x8078011"/>
+		<function name="EQ_LREAL" address="0x8078029"/>
+		<function name="LT_LREAL" address="0x8078041"/>
+		<function name="LE_LREAL" address="0x8078059"/>
+		<function name="NE_LREAL" address="0x8078071"/>
+		<function name="ST_STRING" address="0x80794FB"/>
+		<function name="EQ_STRING" address="0x807A789"/>
+		<function name="NE_STRING" address="0x807A429"/>
+		<function name="LE_STRING" address="0x807A7DD"/>
+		<function name="LT_STRING" address="0x807A7CB"/>
+		<function name="GE_STRING" address="0x807A7B7"/>
+		<function name="GT_STRING" address="0x807A79F"/>
+		<function name="LEN" address="0x80788F9"/>
+		<function name="LEFT" address="0x8078A73"/>
+		<function name="RIGHT" address="0x80789ED"/>
+		<function name="MID" address="0x807894D"/>
+		<function name="CONCAT" address="0x8078C9B"/>
+		<function name="INSERT" address="0x807A715"/>
+		<function name="DELETE" address="0x807A6A5"/>
+		<function name="REPLACE" address="0x8079E85"/>
+		<function name="FIND" address="0x8078905"/>
+		<function name="INT_TO_STRING" address="0x8078621"/>
+		<function name="REAL_TO_STRING" address="0x80785B5"/>
+		<function name="LREAL_TO_STRING" address="0x8078575"/>
+		<function name="STRING_TO_INT" address="0x8079AE3"/>
+		<function name="STRING_TO_UINT" address="0x807A34D"/>
+		<function name="STRING_TO_REAL" address="0x80798B9"/>
+		<function name="STRING_TO_LREAL" address="0x8079831"/>
+		<function name="ST_STRING_SAFE" address="0x80794D9"/>
+		<function name="INT64_TO_STRING" address="0x80784FD"/>
+		<function name="STRING_TO_LINT" address="0x8079655"/>
+		<function name="STRING_TO_ULINT" address="0x807A295"/>
+		<function name="ST_WSTRING_SAFE" address="0x807901B"/>
+		<function name="WLEN" address="0x80780E9"/>
+		<function name="WCONCAT" address="0x8078EFF"/>
+		<function name="WLEFT" address="0x8078E89"/>
+		<function name="WRIGHT" address="0x8078DFD"/>
+		<function name="WMID" address="0x8078D57"/>
+		<function name="WINSERT" address="0x807A74D"/>
+		<function name="WDELETE" address="0x807A6DB"/>
+		<function name="WREPLACE" address="0x8079CB9"/>
+		<function name="WFIND" address="0x80780F5"/>
+		<function name="INT_TO_WSTRING" address="0x807885D"/>
+		<function name="WSTRING_TO_INT" address="0x8079A61"/>
+		<function name="WSTRING_TO_UINT" address="0x8079975"/>
+		<function name="WSTRING_TO_REAL" address="0x8079759"/>
+		<function name="WSTRING_TO_LREAL" address="0x80796B9"/>
+		<function name="REAL_TO_WSTRING" address="0x80787D1"/>
+		<function name="LREAL_TO_WSTRING" address="0x807878D"/>
+		<function name="STRING_TO_WSTRING" address="0x8078765"/>
+		<function name="WSTRING_TO_STRING" address="0x80784D9"/>
+		<function name="EQ_WSTRING" address="0x8078FF7"/>
+		<function name="NE_WSTRING" address="0x8078FFD"/>
+		<function name="LE_WSTRING" address="0x8079003"/>
+		<function name="LT_WSTRING" address="0x8079009"/>
+		<function name="GE_WSTRING" address="0x807900F"/>
+		<function name="GT_WSTRING" address="0x8079015"/>
+		<function name="INT64_TO_WSTRING" address="0x80786CD"/>
+		<function name="WSTRING_TO_LINT" address="0x80795E1"/>
+		<function name="WSTRING_TO_ULINT" address="0x8079515"/>
+		<function name="ABS_REAL" address="0x807813F"/>
+		<function name="SQRT" address="0x80784D5"/>
+		<function name="LN" address="0x80784D1"/>
+		<function name="LOG" address="0x80784CD"/>
+		<function name="EXP" address="0x80784C9"/>
+		<function name="POW" address="0x80784C5"/>
+		<function name="SIN" address="0x80784C1"/>
+		<function name="COS" address="0x80784BD"/>
+		<function name="TAN" address="0x80784B9"/>
+		<function name="ASIN" address="0x80784B5"/>
+		<function name="ACOS" address="0x80784B1"/>
+		<function name="ATAN" address="0x80784AD"/>
+		<function name="ATAN2" address="0x80784A9"/>
+		<function name="SINH" address="0x80784A5"/>
+		<function name="COSH" address="0x80784A1"/>
+		<function name="TANH" address="0x807849D"/>
+		<function name="CEIL" address="0x807848F"/>
+		<function name="FLOOR" address="0x8078481"/>
+		<function name="ABS_LREAL" address="0x807814D"/>
+		<function name="SQRT_LREAL" address="0x807847D"/>
+		<function name="LN_LREAL" address="0x8078479"/>
+		<function name="LOG_LREAL" address="0x8078475"/>
+		<function name="EXP_LREAL" address="0x8078471"/>
+		<function name="POW_LREAL" address="0x807846D"/>
+		<function name="SIN_LREAL" address="0x8078469"/>
+		<function name="COS_LREAL" address="0x8078465"/>
+		<function name="TAN_LREAL" address="0x8078461"/>
+		<function name="ASIN_LREAL" address="0x807845D"/>
+		<function name="ACOS_LREAL" address="0x8078459"/>
+		<function name="ATAN_LREAL" address="0x8078455"/>
+		<function name="ATAN2_LREAL" address="0x8078451"/>
+		<function name="SINH_LREAL" address="0x807844D"/>
+		<function name="COSH_LREAL" address="0x8078449"/>
+		<function name="TANH_LREAL" address="0x8078445"/>
+		<function name="CEIL_LREAL" address="0x8078437"/>
+		<function name="FLOOR_LREAL" address="0x8078429"/>
+		<function name="sysMbMRtu_OpenChn" address="0x807E1E1"/>
+		<function name="sysMbMRtu_OpenChn2" address="0x807E109"/>
+		<function name="sysMbMRtu_SlaveAddToNetList" address="0x807E2C5"/>
+		<function name="sysMbMRtu_SlaveAddToNetList2" address="0x807E219"/>
+		<function name="sysMbMRtu_NewSlaveMessage" address="0x807EB05"/>
+		<function name="sysMbMRtu_NewSlaveMessage2" address="0x807E985"/>
+		<function name="sysMbMRtu_NewSlaveMessage3" address="0x807E799"/>
+		<function name="sysMbMRtu_NewBroadcastMessage" address="0x807E2D5"/>
+		<function name="sysMbMRtu_SlavePrmInteger" address="0x807E439"/>
+		<function name="sysMbMRtu_SlavePrmReal" address="0x807E5C9"/>
+		<function name="sysMbMRtu_GetSlaveHandle" address="0x807E74D"/>
+		<function name="sysMbMRtu_SlaveActivation" address="0x807EB3D"/>
+		<function name="sysMbMRtu_GetMasterStatus" address="0x807EB75"/>
+		<function name="sysMbMRtu_GetSlaveStatus" address="0x807EBAD"/>
+		<function name="sysMbMRtu_SetCurrMsgOneShotVar" address="0x807E3F5"/>
+		<function name="sysMbMRtu_MsgConfigCompleted" address="0x807E425"/>
+		<function name="sysMbMRtu_MemoryMapping" address="0x807EDD1"/>
+		<function name="sysMbMRTU_FC01" address="0x807EE15"/>
+		<function name="sysMbMRTU_FC02" address="0x807EE7B"/>
+		<function name="sysMbMRTU_FC03" address="0x807EEE1"/>
+		<function name="sysMbMRTU_FC04" address="0x807EF47"/>
+		<function name="sysMbMRTU_FC05" address="0x807EFAD"/>
+		<function name="sysMbMRTU_FC06" address="0x807F003"/>
+		<function name="sysMbMRTU_FC15" address="0x807F059"/>
+		<function name="sysMbMRTU_FC16" address="0x807F0C5"/>
+		<function name="sysMbSRtu_OpenChn" address="0x807F8AF"/>
+		<function name="sysMbSRtu_OpenChn2" address="0x807F879"/>
+		<function name="sysMbSRtu_CloseChn" address="0x807F8CD"/>
+		<function name="sysMbMTcp_CheckMemorySize" address="0x8082E55"/>
+		<function name="sysMbMTcp_InitMemory" address="0x8082EBD"/>
+		<function name="sysMbMTcp_InitProcessImages" address="0x8082F31"/>
+		<function name="sysMbMTcp_InitNetConfiguration" address="0x8083011"/>
+		<function name="sysMbMTcp_ReadReg_RO" address="0x8082B35"/>
+		<function name="sysMbMTcp_ReadReg_RW" address="0x8082AF9"/>
+		<function name="sysMbMTcp_WriteReg_S" address="0x8082B71"/>
+		<function name="sysMbMTcp_WriteReg_M" address="0x8082BE9"/>
+		<function name="sysCfgDOs" address="0x807D249"/>
+		<function name="sysCfgAIs" address="0x807D269"/>
+		<function name="sysCfgAO" address="0x807D299"/>
+		<function name="sysCfgProgDIOs" address="0x807D29D"/>
+		<function name="sysCfgProgDIO" address="0x807D2BD"/>
+		<function name="sysCfgTempProbe" address="0x807D335"/>
+		<function name="sysCfgTempProbes" address="0x807D2D1"/>
+		<function name="sysCopm_MemoryMapping" address="0x8085571"/>
+		<function name="sysCopm_SetConstPDORxCobIDMap" address="0x8085625"/>
+		<function name="sysCopm_SetConstNetIDMap" address="0x8085641"/>
+		<function name="sysCopm_NetAssign" address="0x808565D"/>
+		<function name="sysCopm_MasterAssign" address="0x80856E5"/>
+		<function name="sysCopm_SlaveAssign" address="0x80857CD"/>
+		<function name="sysCopm_GetSlaveHandle" address="0x808551D"/>
+		<function name="sysCopm_PdoRxInstall" address="0x8085979"/>
+		<function name="sysCopm_PdoTxInstall" address="0x8085AD5"/>
+		<function name="sysCopm_PdoIecMappingsSet" address="0x8085C55"/>
+		<function name="sysCopm_SlavePrmSet" address="0x8085CB5"/>
+		<function name="sysCopm_SlaveSetObjInteger" address="0x8085D4D"/>
+		<function name="sysCopm_SlaveSetObjReal" address="0x8085E45"/>
+		<function name="sysCopm_SlaveGetObjInteger" address="0x8086021"/>
+		<function name="sysCopm_SlaveGetObjReal" address="0x808613D"/>
+		<function name="sysCopm_SlaveGetObjBuffer" address="0x8086269"/>
+		<function name="sysCopm_SlaveSetObjBuffer" address="0x8085F3D"/>
+		<function name="sysCopm_Reboot" address="0x8085505"/>
+	</functions>
+</targetImage>

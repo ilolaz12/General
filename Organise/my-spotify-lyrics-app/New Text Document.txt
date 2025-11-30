@@ -1,0 +1,25 @@
+my-spotify-lyrics-app/
+│
+├── backend/
+│   ├── node_modules/
+│   ├── package.json
+│   ├── server.js
+│   ├── .env
+│   └── routes/
+│       ├── auth.js
+│       └── lyrics.js
+│
+├── frontend/
+│   ├── node_modules/
+│   ├── public/
+│   ├── src/
+│       ├── components/
+│       │   └── LyricsDisplay.js
+│       ├── App.js
+│       ├── index.js
+│   ├── package.json
+│
+└── powershell/
+    └── create_structure.ps1
+
+

@@ -1,0 +1,52 @@
+// Religious Creation Stories
+digraph {
+	Judaism [label=Judaism]
+	Christianity [label=Christianity]
+	Islam [label=Islam]
+	Hinduism [label=Hinduism]
+	Buddhism [label=Buddhism]
+	"Chinese Religions" [label="Chinese Religions
+(Daoism and Confucianism)"]
+	"Indigenous Religions" [label="Indigenous Religions
+and Polytheistic"]
+	"Ancient Egyptian" [label="Ancient Egyptian
+Religion"]
+	Genesis [label="Genesis Creation Story"]
+	Judaism -> Genesis
+	Christianity -> Genesis
+	"Quran Creation" [label="Quranic Creation Story"]
+	Islam -> "Quran Creation"
+	Rigveda [label="Rigveda Creation Hymns"]
+	Purusha [label="Purusha Myth"]
+	Hinduism -> Rigveda
+	Hinduism -> Purusha
+	Samsara [label="Concept of Samsara"]
+	Buddhism -> Samsara
+	Pangu [label="Pangu Myth"]
+	Nuwa [label="Nuwa Myth"]
+	"Chinese Religions" -> Pangu
+	"Chinese Religions" -> Nuwa
+	"Ancestral Myths" [label="Ancestral and Nature Myths"]
+	"Indigenous Religions" -> "Ancestral Myths"
+	Atum [label="Atum Creation Myth"]
+	Ptah [label="Ptah Creation Myth"]
+	"Ancient Egyptian" -> Atum
+	"Ancient Egyptian" -> Ptah
+	Outreach [label="Religion Outreach Themes"]
+	Outreach -> Judaism
+	Outreach -> Christianity
+	Outreach -> Islam
+	Outreach -> Hinduism
+	Outreach -> Buddhism
+	Outreach -> "Chinese Religions"
+	Outreach -> "Indigenous Religions"
+	Outreach -> "Ancient Egyptian"
+	"Cultural Exchange" [label="Cultural Exchange"]
+	"Interfaith Dialogue" [label="Interfaith Dialogue"]
+	"Historical Understanding" [label="Historical Understanding"]
+	"Social Harmony" [label="Social Harmony"]
+	Outreach -> "Cultural Exchange"
+	Outreach -> "Interfaith Dialogue"
+	Outreach -> "Historical Understanding"
+	Outreach -> "Social Harmony"
+}

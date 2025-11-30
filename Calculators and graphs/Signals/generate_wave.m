@@ -1,0 +1,150 @@
+%% Example 1: sine wave over 1/8000th of a second
+% Time vector: 1 second at 8000 Hz 
+t = 0:1/8000:1; %laptop can accommodate for it, one of standards
+%x = sin(2*pi*t*100);
+x=2*sin(2*pi*5*t)/256+4*sin(2*pi*8*t)/256;
+
+figure(1); % the wave itself
+plot(t,x);
+%axis([0 1 -1.2 1.2]);
+xlabel('Time(s)');
+ylabel('Amplitude');
+title('Sine Wave 100 Hz, 1 second');
+
+figure (2); % first N samples
+n_samples=100;
+plot(t(1:n_samples),x(1:n_samples)); %stemplot for better visual representation
+axis([0 n_samples/8000 -1.2  1.2]);
+xlabel('Time(s)');
+ylabel('Amplitude');
+title('Sine Wave 100 Hz, 100 Samples');
+
+%% Example 2: all-digital approach, using index instead of t
+% sample indexing
+N = 40; %number of samples
+n = [0:N-1]; %time-frame in terms of samples
+% radians per sample
+w =2*pi/20;
+%  new equation form
+x2 = sin(n*w);
+
+figure (3);
+stem(x2 ,'.');
+set(gca, 'ylim', [-1.2 1.2]);
+xlabel('Sample Number');
+ylabel('Amplitude');
+title('Discrete Sine Wave 2\pi/20rad/samp, 40 Samples');
+
+%% Example 3: simple waveform
+% Sampling frequency sample/second
+fs = 8000;
+T = 1/fs ;
+% generated frequency - 500 Hz
+fo = 500;
+N = 2000;
+t = T*(0:N−1);
+x = sin(2*pi*fo*t);
+plot(t(1:100), x(1:100), '.', t, (1:100), x(1:100), '−');
+
+%% Example 4: simple waveform
+% Sampling frequency sample/second
+fs = 8000;
+T = 1/fs ;
+% generated frequency - 500 Hz
+fo = 500;
+w = 2*pi*(fo/fs);
+N = 2000;
+n = 0:N−1;
+x = sin(n*w);
+stem(x(1:100), '.');
+
+%% Example 5: Waveforms & Phase-Shift
+dt = 1/10000;
+fo = 100;
+N = 400;
+t = dt*(0:N−1);
+
+x = sin(2*pi*fo*t);
+subplot(3,1,1);
+plot(t,x);
+
+xlag = sin(2*pi*fo*t − pi/3);
+subplot(3,1,2);
+plot(t, xlag);
+
+xlead = sin(2*pi*fo*t + pi/3);
+subplot(3,1,3);
+plot(t, xlead);
+
+%% Example 6: Integration & Differentiation
+N = 100;
+n = 0:N−1;
+w = pi/10;
+x = sin(n*w);
+stem(x, '.');
+stem(diff(x), '.');
+stem(cumsum(x), '.');
+
+%% Example 7: 
+% number of samples
+N = 100;
+% sample indexing
+n = 0:N-1;
+% phase-angle step
+w = 2*pi/50;
+% amplitude
+A = 4;
+% phase-shift
+phi = 0;
+% waveform
+x = A*sin(n*w+phi);
+% graph
+stem(n, x, '.');
+xlabel('Sample Number');
+ylabel('Amplitude');
+title('Discrete Sine Wave 2\pi/50rad/samp, 100 Samples');
+
+%% Example 8: Simulate channel data
+% Step 1: The transmitted pulse shape.
+% generate one single 'pulse' − define shape on channel
+t = 0:0.01:1 ;
+s = t.*exp(-10*t);
+s = s';
+figure;
+subplot(3, 1, 1);
+plot(s);
+% Step 2: A random data bit sequence.
+% the data bits transmitted. random stream of +/−1
+B = 8;
+d = randi(2,[B,1]);
+d = d';
+d(find(d==2)) = -1;
+stairs(d);
+axis([1 B -2 2 ]);
+% Step 3: The transmitted waveform
+% create each pulse as a column vector
+% repeat column vectors for the number of data bits
+ss = repmat(s, [1, size(d,2)]);
+% create data bit matrix, repeat for each sample
+ds = repmat(d, [size(s, 1), 1]);
+% multiply each column(pulse shape) by data(+1 or −1)
+tx = ss.*ds;
+% make into one serial vector
+tx = tx( : );
+subplot(3, 1, 2);
+plot(tx);
+% Step 4: Add noise
+% add noise to the data pulse to simulate a noisy channel
+g = randn(size(tx));
+a = 0.005;
+rx = tx+a*g;
+subplot(3, 1, 3);
+plot(rx);
+
+%% Example: Pulse
+t = -4:.01:4;
+tau = 0.5;
+hs = sin(pi*t/tau)./(pi*t/tau);
+plot(t, hs);
+grid on
+grid minor

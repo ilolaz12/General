@@ -1,0 +1,34 @@
+%% Variables
+% Define file name
+FileName = 'C:\Users\ilo_l\Downloads\FibreData_8.txt';
+% Load file
+dB = load(FileName);  % Assumes single-column dB data
+% Constants
+c = 3e8; % Speed of light in m/s
+v = (2/3)*c; % Speed in fiber (m/s)
+sampling_interval = 10e-9; % 10 ns
+% Time vector
+N = length(dB);
+t = (0:N-1) * sampling_interval;
+
+%% Calculations and analysis
+% Distance vector
+distance = (v.*t)/2;
+
+% Compute power change between points
+ddB = diff(dB);
+% Thresholds for classification
+connector_thresh = -0.15;
+splice_thresh = -0.5;
+min_spacing = 5;
+
+
+%% Plot
+figure(1);
+plot(distance, dB);
+xlabel('Distance in meters');
+ylabel('Power (dB)');
+title('OTDR Trace');
+grid on;
+% Save plot
+print(gcf, 'C:\Users\ilo_l\Downloads\OTDRresults.png', '-dpng');

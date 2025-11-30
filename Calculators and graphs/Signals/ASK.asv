@@ -1,0 +1,31 @@
+%% Transmitting ASK_RF signal
+% Bit pattern
+bits = [0, 1, 0, 1, 1, 1, 1, 1, 0];
+% Samples per carrier cycle
+N = 50;
+% Phase defined in radiant-steps per sample
+omega = 2*pi/N;
+% Carrier cycle per symbol
+C = 3;
+% Output waveform array placeholder
+ASK_store=[];
+for i = 1:length(bits)
+    % Adjust for varying amplitude
+    if bits(i) == 0
+        A = 1;
+    else 
+        A = 0.5;
+    end
+    % Sample indexes
+    t = 0:N-1;
+    % Generate waveform
+    ASK_wave = A*sin(C*omega*t);
+    %Append data to graph
+    ASK_store= [ASK_store ASK_wave];
+end 
+
+plot (ASK_store);
+title ('ASK Modulated waveform');
+xlabel ('Sample number');
+ylabel ('Amplitude');
+grid on;

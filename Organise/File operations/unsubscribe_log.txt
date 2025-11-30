@@ -1,0 +1,509 @@
+2024-06-07 13:11:51,014 - ERROR - An error occurred: b'[ALERT] Application-specific password required: https://support.google.com/accounts/answer/185833 (Failure)'
+2024-06-07 13:11:51,300 - INFO - Logged out from the email server.
+2024-06-07 13:12:18,254 - ERROR - An error occurred: b'[ALERT] Application-specific password required: https://support.google.com/accounts/answer/185833 (Failure)'
+2024-06-07 13:12:18,533 - INFO - Logged out from the email server.
+2024-06-07 13:14:17,270 - ERROR - Failed to connect to the mail server: b'[ALERT] Application-specific password required: https://support.google.com/accounts/answer/185833 (Failure)'
+2024-06-07 13:20:23,699 - INFO - Connected to the mail server.
+2024-06-07 13:20:33,241 - INFO - Inbox selected.
+2024-06-07 13:20:43,505 - INFO - Found 17895 emails.
+2024-06-07 13:20:56,541 - INFO - Email subject: Get Gmail on your mobile phone
+2024-06-07 13:21:10,133 - INFO - Email subject: Get Gmail on your mobile phone
+2024-06-07 13:21:10,931 - INFO - Email moved to trash: Get Gmail on your mobile phone
+2024-06-07 13:21:42,682 - INFO - Email subject: Get Gmail on your mobile phone
+2024-06-07 13:26:23,038 - INFO - Email subject: Get Gmail on your mobile phone
+2024-06-07 13:26:23,526 - INFO - Email subject: Import your contacts and old email
+2024-06-07 13:26:24,015 - INFO - Email subject: Customize Gmail with colors and themes
+2024-06-07 13:26:24,508 - INFO - Email subject: Denis Churilov invited you to join him on Google+
+2024-06-07 13:26:25,004 - INFO - Email subject: Vlad Petrov added you on Google+
+2024-06-07 13:26:25,502 - INFO - Email subject: \u0413\u0435\u043e\u0440\u0433\u0438\u0439 \u041c\u0430\u0441\u044e\u043a added you on Google+
+2024-06-07 13:26:25,987 - INFO - Email subject: You are using Google Latitude and reporting your location
+2024-06-07 13:26:26,474 - INFO - Email subject: stream of consciousness poetry book maxim.quirk (ilo.laz12@gmail.com)
+2024-06-07 13:26:26,966 - INFO - Email subject: 
+2024-06-07 13:26:27,556 - INFO - Email subject: Vic Gundotra, Financial Review and 1 other shared with you on Google+
+2024-06-07 13:27:09,571 - INFO - Email subject: Get Gmail on your mobile phone
+2024-06-07 13:27:10,053 - INFO - Email moved to trash: Get Gmail on your mobile phone
+2024-06-07 13:27:10,537 - INFO - Email subject: Import your contacts and old email
+2024-06-07 13:27:11,340 - INFO - Email moved to trash: Import your contacts and old email
+2024-06-07 13:27:11,846 - INFO - Email subject: Customize Gmail with colors and themes
+2024-06-07 13:27:12,644 - INFO - Email moved to trash: Customize Gmail with colors and themes
+2024-06-07 13:27:13,147 - INFO - Email subject: Denis Churilov invited you to join him on Google+
+2024-06-07 13:27:13,196 - INFO - Unsubscribe link opened: Unsubscribe</a> from these emails.<br></td><td><img src=
+2024-06-07 13:27:14,005 - INFO - Email moved to trash: Denis Churilov invited you to join him on Google+
+2024-06-07 13:27:14,516 - INFO - Email subject: Vlad Petrov added you on Google+
+2024-06-07 13:27:15,317 - INFO - Email moved to trash: Vlad Petrov added you on Google+
+2024-06-07 13:27:15,819 - INFO - Email subject: \u0413\u0435\u043e\u0440\u0433\u0438\u0439 \u041c\u0430\u0441\u044e\u043a added you on Google+
+2024-06-07 13:27:16,604 - INFO - Email moved to trash: \u0413\u0435\u043e\u0440\u0433\u0438\u0439 \u041c\u0430\u0441\u044e\u043a added you on Google+
+2024-06-07 13:27:17,091 - INFO - Email subject: You are using Google Latitude and reporting your location
+2024-06-07 13:27:17,882 - INFO - Email moved to trash: You are using Google Latitude and reporting your location
+2024-06-07 13:27:18,368 - INFO - Email subject: stream of consciousness poetry book maxim.quirk (ilo.laz12@gmail.com)
+2024-06-07 13:27:19,163 - INFO - Email moved to trash: stream of consciousness poetry book maxim.quirk (ilo.laz12@gmail.com)
+2024-06-07 13:27:19,652 - INFO - Email subject: 
+2024-06-07 13:27:20,447 - INFO - Email moved to trash: 
+2024-06-07 13:27:20,988 - INFO - Email subject: Vic Gundotra, Financial Review and 1 other shared with you on Google+
+2024-06-07 13:27:21,798 - INFO - Email moved to trash: Vic Gundotra, Financial Review and 1 other shared with you on Google+
+2024-06-07 13:27:22,263 - INFO - Logged out from the email server.
+2024-06-07 13:27:51,403 - ERROR - Failed to fetch and parse emails: command FETCH illegal in state LOGOUT, only allowed in states SELECTED
+2024-06-07 13:28:04,225 - INFO - Connected to the mail server.
+2024-06-07 13:28:08,327 - INFO - Inbox selected.
+2024-06-07 13:28:12,563 - INFO - Found 17727 emails.
+2024-06-07 13:28:15,842 - INFO - Email subject: \u041a\u0430\u0440\u0442\u043e\u0448\u043a\u0430. 
+2024-06-07 13:28:17,417 - INFO - Email subject: Assessment
+2024-06-07 13:28:17,894 - INFO - Email subject: RE: 
+2024-06-07 13:28:18,365 - INFO - Email subject: Russian Tuition
+2024-06-07 13:28:18,844 - INFO - Email subject: Email account and Maxam
+2024-06-07 13:28:19,328 - INFO - Email subject: \u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043f\u043e\u0434\u043f\u0438\u0441\u043a\u0443 \u043d\u0430 \u0440\u0430\u0441\u0441\u044b\u043b\u043a\u0443!
+2024-06-07 13:28:19,797 - INFO - Email subject: Re: Timesheet (start to 1sept)
+2024-06-07 13:28:20,264 - INFO - Email subject: \u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043f\u043e\u0434\u043f\u0438\u0441\u043a\u0443 \u043d\u0430 \u0440\u0430\u0441\u0441\u044b\u043b\u043a\u0443!
+2024-06-07 13:28:20,754 - INFO - Email subject: RE: English lesson
+2024-06-07 13:28:21,235 - INFO - Email subject: RE: English lesson
+2024-06-07 13:28:29,227 - INFO - Email subject: \u041a\u0430\u0440\u0442\u043e\u0448\u043a\u0430. 
+2024-06-07 13:28:30,002 - INFO - Email moved to trash: \u041a\u0430\u0440\u0442\u043e\u0448\u043a\u0430. 
+2024-06-07 13:28:30,822 - INFO - Email subject: Assessment
+2024-06-07 13:28:31,599 - INFO - Email moved to trash: Assessment
+2024-06-07 13:28:32,067 - INFO - Email subject: RE: 
+2024-06-07 13:28:32,843 - INFO - Email moved to trash: RE: 
+2024-06-07 13:28:33,313 - INFO - Email subject: Russian Tuition
+2024-06-07 13:28:34,084 - INFO - Email moved to trash: Russian Tuition
+2024-06-07 13:28:34,556 - INFO - Email subject: Email account and Maxam
+2024-06-07 13:28:35,356 - INFO - Email moved to trash: Email account and Maxam
+2024-06-07 13:28:35,832 - INFO - Email subject: \u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043f\u043e\u0434\u043f\u0438\u0441\u043a\u0443 \u043d\u0430 \u0440\u0430\u0441\u0441\u044b\u043b\u043a\u0443!
+2024-06-07 13:28:36,616 - INFO - Email moved to trash: \u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043f\u043e\u0434\u043f\u0438\u0441\u043a\u0443 \u043d\u0430 \u0440\u0430\u0441\u0441\u044b\u043b\u043a\u0443!
+2024-06-07 13:28:37,083 - INFO - Email subject: Re: Timesheet (start to 1sept)
+2024-06-07 13:28:37,844 - INFO - Email moved to trash: Re: Timesheet (start to 1sept)
+2024-06-07 13:28:38,312 - INFO - Email subject: \u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043f\u043e\u0434\u043f\u0438\u0441\u043a\u0443 \u043d\u0430 \u0440\u0430\u0441\u0441\u044b\u043b\u043a\u0443!
+2024-06-07 13:28:39,085 - INFO - Email moved to trash: \u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043f\u043e\u0434\u043f\u0438\u0441\u043a\u0443 \u043d\u0430 \u0440\u0430\u0441\u0441\u044b\u043b\u043a\u0443!
+2024-06-07 13:28:39,557 - INFO - Email subject: RE: English lesson
+2024-06-07 13:28:40,327 - INFO - Email moved to trash: RE: English lesson
+2024-06-07 13:28:40,800 - INFO - Email subject: RE: English lesson
+2024-06-07 13:28:41,566 - INFO - Email moved to trash: RE: English lesson
+2024-06-07 13:28:42,020 - INFO - Logged out from the email server.
+2024-06-07 13:29:18,526 - INFO - Connected to the mail server.
+2024-06-07 13:29:20,843 - INFO - Inbox selected.
+2024-06-07 13:29:25,083 - INFO - Found 17717 emails.
+2024-06-07 13:29:27,969 - INFO - Email subject: Lesson Confirmation
+2024-06-07 13:29:28,445 - INFO - Email subject: Your Application
+2024-06-07 13:29:28,914 - INFO - Email subject: Account details for ilo_laz at www.jobswithus.com.au
+2024-06-07 13:29:29,394 - INFO - Email subject: Your Onetest Account Details
+2024-06-07 13:29:30,465 - INFO - Email subject: RE: SEEK: Application For Project Administrator √ Fortitude Valley   , Ref: , Application Source: SEEK
+2024-06-07 13:29:30,943 - INFO - Email subject: Password Updated
+2024-06-07 13:29:31,429 - INFO - Email subject: Your application for Vacation Student (Mechanical) is not yet
+ complete
+2024-06-07 13:29:31,913 - INFO - Email subject: WorkPac Contact - Megan Shorter
+2024-06-07 13:29:32,394 - INFO - Email subject: avast! Account - registration confirmation request
+2024-06-07 13:29:32,872 - INFO - Email subject: Thanks for applying to Google
+2024-06-07 13:30:08,813 - INFO - Email subject: Lesson Confirmation
+2024-06-07 13:30:09,600 - INFO - Email moved to trash: Lesson Confirmation
+2024-06-07 13:30:10,094 - INFO - Email subject: Your Application
+2024-06-07 13:30:10,094 - ERROR - Failed to unsubscribe and move emails to trash: 'utf-8' codec can't decode byte 0x92 in position 1821: invalid start byte
+2024-06-07 13:30:31,812 - INFO - Email subject: Lesson Confirmation
+2024-06-07 13:30:32,282 - INFO - Email subject: Your Application
+2024-06-07 13:30:32,750 - INFO - Email subject: Account details for ilo_laz at www.jobswithus.com.au
+2024-06-07 13:30:33,221 - INFO - Email subject: Your Onetest Account Details
+2024-06-07 13:30:33,840 - INFO - Email subject: RE: SEEK: Application For Project Administrator √ Fortitude Valley   , Ref: , Application Source: SEEK
+2024-06-07 13:30:34,309 - INFO - Email subject: Password Updated
+2024-06-07 13:30:34,783 - INFO - Email subject: Your application for Vacation Student (Mechanical) is not yet
+ complete
+2024-06-07 13:30:35,264 - INFO - Email subject: WorkPac Contact - Megan Shorter
+2024-06-07 13:30:35,736 - INFO - Email subject: avast! Account - registration confirmation request
+2024-06-07 13:30:36,206 - INFO - Email subject: Thanks for applying to Google
+2024-06-07 13:30:41,085 - INFO - Email subject: Lesson Confirmation
+2024-06-07 13:30:41,552 - INFO - Email moved to trash: Lesson Confirmation
+2024-06-07 13:30:42,031 - INFO - Email subject: Your Application
+2024-06-07 13:30:42,032 - ERROR - Failed to unsubscribe and move emails to trash: 'utf-8' codec can't decode byte 0x92 in position 1821: invalid start byte
+2024-06-07 13:30:54,634 - INFO - Email subject: Lesson Confirmation
+2024-06-07 13:30:55,105 - INFO - Email subject: Your Application
+2024-06-07 13:30:55,576 - INFO - Email subject: Account details for ilo_laz at www.jobswithus.com.au
+2024-06-07 13:30:56,054 - INFO - Email subject: Your Onetest Account Details
+2024-06-07 13:30:56,647 - INFO - Email subject: RE: SEEK: Application For Project Administrator √ Fortitude Valley   , Ref: , Application Source: SEEK
+2024-06-07 13:30:57,121 - INFO - Email subject: Password Updated
+2024-06-07 13:30:57,595 - INFO - Email subject: Your application for Vacation Student (Mechanical) is not yet
+ complete
+2024-06-07 13:30:58,075 - INFO - Email subject: WorkPac Contact - Megan Shorter
+2024-06-07 13:30:58,548 - INFO - Email subject: avast! Account - registration confirmation request
+2024-06-07 13:30:59,028 - INFO - Email subject: Thanks for applying to Google
+2024-06-07 13:31:03,961 - INFO - Email subject: Lesson Confirmation
+2024-06-07 13:31:04,429 - INFO - Email moved to trash: Lesson Confirmation
+2024-06-07 13:31:04,900 - INFO - Email subject: Your Application
+2024-06-07 13:31:04,900 - ERROR - Failed to unsubscribe and move emails to trash: 'utf-8' codec can't decode byte 0x92 in position 1821: invalid start byte
+2024-06-07 13:31:28,085 - INFO - Email subject: Lesson Confirmation
+2024-06-07 13:31:28,553 - INFO - Email moved to trash: Lesson Confirmation
+2024-06-07 13:31:29,027 - INFO - Email subject: Your Application
+2024-06-07 13:31:29,028 - ERROR - Failed to unsubscribe and move emails to trash: 'utf-8' codec can't decode byte 0x92 in position 1821: invalid start byte
+2024-06-07 13:32:39,096 - INFO - Email subject: Lesson Confirmation
+2024-06-07 13:32:39,563 - INFO - Email subject: Your Application
+2024-06-07 13:32:40,032 - INFO - Email subject: Account details for ilo_laz at www.jobswithus.com.au
+2024-06-07 13:32:40,521 - INFO - Email subject: Your Onetest Account Details
+2024-06-07 13:32:41,098 - INFO - Email subject: RE: SEEK: Application For Project Administrator √ Fortitude Valley   , Ref: , Application Source: SEEK
+2024-06-07 13:32:41,565 - INFO - Email subject: Password Updated
+2024-06-07 13:32:42,038 - INFO - Email subject: Your application for Vacation Student (Mechanical) is not yet
+ complete
+2024-06-07 13:32:42,529 - INFO - Email subject: WorkPac Contact - Megan Shorter
+2024-06-07 13:32:43,001 - INFO - Email subject: avast! Account - registration confirmation request
+2024-06-07 13:32:43,473 - INFO - Email subject: Thanks for applying to Google
+2024-06-07 13:32:48,434 - INFO - Email subject: Lesson Confirmation
+2024-06-07 13:32:48,896 - INFO - Email moved to trash: Lesson Confirmation
+2024-06-07 13:32:49,367 - INFO - Email subject: Your Application
+2024-06-07 13:32:49,367 - ERROR - Failed to unsubscribe and move emails to trash: 'utf-8' codec can't decode byte 0x92 in position 1821: invalid start byte
+2024-06-07 13:34:03,350 - INFO - Connected to the mail server.
+2024-06-07 13:34:03,900 - INFO - Inbox selected.
+2024-06-07 13:34:04,725 - INFO - Found 17716 emails.
+2024-06-07 13:34:05,216 - INFO - Email subject: Your Application
+2024-06-07 13:34:05,702 - INFO - Email subject: Account details for ilo_laz at www.jobswithus.com.au
+2024-06-07 13:34:06,191 - INFO - Email subject: Your Onetest Account Details
+2024-06-07 13:34:06,901 - INFO - Email subject: RE: SEEK: Application For Project Administrator \x96 Fortitude Valley   , Ref: , Application Source: SEEK
+2024-06-07 13:34:07,386 - INFO - Email subject: Password Updated
+2024-06-07 13:34:07,878 - INFO - Email subject: Your application for Vacation Student (Mechanical) is not yet
+ complete
+2024-06-07 13:34:08,382 - INFO - Email subject: WorkPac Contact - Megan Shorter
+2024-06-07 13:34:08,871 - INFO - Email subject: avast! Account - registration confirmation request
+2024-06-07 13:34:09,363 - INFO - Email subject: Thanks for applying to Google
+2024-06-07 13:34:09,857 - INFO - Email subject: Thanks for applying to Google
+2024-06-07 13:34:10,348 - INFO - Email subject: Your Application
+2024-06-07 13:34:11,153 - INFO - Email moved to trash: Your Application
+2024-06-07 13:34:11,643 - INFO - Email subject: Account details for ilo_laz at www.jobswithus.com.au
+2024-06-07 13:34:12,466 - INFO - Email moved to trash: Account details for ilo_laz at www.jobswithus.com.au
+2024-06-07 13:34:12,961 - INFO - Email subject: Your Onetest Account Details
+2024-06-07 13:34:13,763 - INFO - Email moved to trash: Your Onetest Account Details
+2024-06-07 13:34:14,370 - INFO - Email subject: RE: SEEK: Application For Project Administrator \x96 Fortitude Valley   , Ref: , Application Source: SEEK
+2024-06-07 13:34:15,160 - INFO - Email moved to trash: RE: SEEK: Application For Project Administrator \x96 Fortitude Valley   , Ref: , Application Source: SEEK
+2024-06-07 13:34:15,647 - INFO - Email subject: Password Updated
+2024-06-07 13:34:16,459 - INFO - Email moved to trash: Password Updated
+2024-06-07 13:34:16,947 - INFO - Email subject: Your application for Vacation Student (Mechanical) is not yet
+ complete
+2024-06-07 13:34:17,749 - INFO - Email moved to trash: Your application for Vacation Student (Mechanical) is not yet
+ complete
+2024-06-07 13:34:18,299 - INFO - Email subject: WorkPac Contact - Megan Shorter
+2024-06-07 13:34:19,088 - INFO - Email moved to trash: WorkPac Contact - Megan Shorter
+2024-06-07 13:34:19,575 - INFO - Email subject: avast! Account - registration confirmation request
+2024-06-07 13:34:20,364 - INFO - Email moved to trash: avast! Account - registration confirmation request
+2024-06-07 13:34:20,860 - INFO - Email subject: Thanks for applying to Google
+2024-06-07 13:34:21,665 - INFO - Email moved to trash: Thanks for applying to Google
+2024-06-07 13:34:22,152 - INFO - Email subject: Thanks for applying to Google
+2024-06-07 13:34:22,949 - INFO - Email moved to trash: Thanks for applying to Google
+2024-06-07 13:34:23,422 - INFO - Logged out from the email server.
+2024-06-07 13:35:06,914 - INFO - Connected to the mail server.
+2024-06-07 13:35:07,439 - INFO - Inbox selected.
+2024-06-07 13:35:08,234 - INFO - Found 17706 emails.
+2024-06-07 13:35:08,709 - INFO - Email subject: Your application for Christmas Casuals | Brisbane North  is not yet
+ complete
+2024-06-07 13:35:09,466 - INFO - Email subject: RE: WorkPac Contact - Megan Shorter
+2024-06-07 13:35:09,937 - INFO - Email subject: Application received by HJB Bowdens
+2024-06-07 13:35:10,410 - INFO - Email subject: Private & Confidential
+2024-06-07 13:35:10,884 - INFO - Email subject: Premium access to letitbit.net on 1 day day(s)
+2024-06-07 13:35:11,368 - INFO - Email subject: RE: 
+2024-06-07 13:35:11,848 - INFO - Email subject: Re: 
+2024-06-07 13:35:12,318 - INFO - Email subject: Delivery Status Notification (Failure)
+2024-06-07 13:35:12,805 - INFO - Email subject: RE: Re:
+2024-06-07 13:35:14,149 - INFO - Email subject: Орхидея 
+2024-06-07 13:35:14,620 - INFO - Email subject: Your application for Christmas Casuals | Brisbane North  is not yet
+ complete
+2024-06-07 13:35:15,406 - INFO - Email moved to trash: Your application for Christmas Casuals | Brisbane North  is not yet
+ complete
+2024-06-07 13:35:16,088 - INFO - Email subject: RE: WorkPac Contact - Megan Shorter
+2024-06-07 13:35:16,876 - INFO - Email moved to trash: RE: WorkPac Contact - Megan Shorter
+2024-06-07 13:35:17,346 - INFO - Email subject: Application received by HJB Bowdens
+2024-06-07 13:35:18,137 - INFO - Email moved to trash: Application received by HJB Bowdens
+2024-06-07 13:35:18,606 - INFO - Email subject: Private & Confidential
+2024-06-07 13:35:19,391 - INFO - Email moved to trash: Private & Confidential
+2024-06-07 13:35:19,860 - INFO - Email subject: Premium access to letitbit.net on 1 day day(s)
+2024-06-07 13:35:20,632 - INFO - Email moved to trash: Premium access to letitbit.net on 1 day day(s)
+2024-06-07 13:35:21,108 - INFO - Email subject: RE: 
+2024-06-07 13:35:21,876 - INFO - Email moved to trash: RE: 
+2024-06-07 13:35:22,414 - INFO - Email subject: Re: 
+2024-06-07 13:35:23,208 - INFO - Email moved to trash: Re: 
+2024-06-07 13:35:23,681 - INFO - Email subject: Delivery Status Notification (Failure)
+2024-06-07 13:35:24,597 - INFO - Email moved to trash: Delivery Status Notification (Failure)
+2024-06-07 13:35:25,094 - INFO - Email subject: RE: Re:
+2024-06-07 13:35:25,890 - INFO - Email moved to trash: RE: Re:
+2024-06-07 13:35:27,134 - INFO - Email subject: Орхидея 
+2024-06-07 13:35:27,911 - INFO - Email moved to trash: Орхидея 
+2024-06-07 13:35:28,367 - INFO - Logged out from the email server.
+2024-06-07 13:50:07,231 - INFO - Connected to the mail server.
+2024-06-07 13:50:07,755 - INFO - Inbox selected.
+2024-06-07 13:50:08,622 - INFO - Found 17696 emails.
+2024-06-07 13:50:09,118 - INFO - Email subject: Re: TFN
+2024-06-07 13:50:09,820 - INFO - Email subject: Гид в Брисбане
+2024-06-07 13:50:10,543 - INFO - Email subject: RE: Гид в Брисбане
+2024-06-07 13:50:11,114 - INFO - Email subject: Fw: 
+2024-06-07 13:50:11,611 - INFO - Email subject: \u041e\u0442\u0432\u0435\u0442 \u0438\u0437 \u041e\u0440\u0438\u0435\u043d\u0442\u0430\u043b \u0414\u0438\u0441\u043a\u0430\u0432\u0435\u0440\u0438
+2024-06-07 13:50:12,096 - INFO - Email subject: Incomplete job application reminder
+2024-06-07 13:50:12,579 - INFO - Email subject: Delivery Status Notification (Delay)
+2024-06-07 13:50:13,052 - INFO - Email subject: Delivery Status Notification (Delay)
+2024-06-07 13:50:13,526 - INFO - Email subject: Delivery Status Notification (Failure)
+2024-06-07 13:50:15,296 - INFO - Email subject: Evgenii Pak English lessons
+2024-06-07 13:50:15,819 - INFO - Email subject: Re: TFN
+2024-06-07 13:50:16,618 - INFO - Email moved to trash: Re: TFN
+2024-06-07 13:50:17,255 - INFO - Email subject: Гид в Брисбане
+2024-06-07 13:50:18,035 - INFO - Email moved to trash: Гид в Брисбане
+2024-06-07 13:50:18,708 - INFO - Email subject: RE: Гид в Брисбане
+2024-06-07 13:50:19,507 - INFO - Email moved to trash: RE: Гид в Брисбане
+2024-06-07 13:50:20,049 - INFO - Email subject: Fw: 
+2024-06-07 13:50:20,832 - INFO - Email moved to trash: Fw: 
+2024-06-07 13:50:21,328 - INFO - Email subject: \u041e\u0442\u0432\u0435\u0442 \u0438\u0437 \u041e\u0440\u0438\u0435\u043d\u0442\u0430\u043b \u0414\u0438\u0441\u043a\u0430\u0432\u0435\u0440\u0438
+2024-06-07 13:50:22,111 - INFO - Email moved to trash: \u041e\u0442\u0432\u0435\u0442 \u0438\u0437 \u041e\u0440\u0438\u0435\u043d\u0442\u0430\u043b \u0414\u0438\u0441\u043a\u0430\u0432\u0435\u0440\u0438
+2024-06-07 13:50:22,588 - INFO - Email subject: Incomplete job application reminder
+2024-06-07 13:50:23,382 - INFO - Email moved to trash: Incomplete job application reminder
+2024-06-07 13:50:23,858 - INFO - Email subject: Delivery Status Notification (Delay)
+2024-06-07 13:50:24,646 - INFO - Email moved to trash: Delivery Status Notification (Delay)
+2024-06-07 13:50:25,143 - INFO - Email subject: Delivery Status Notification (Delay)
+2024-06-07 13:50:25,927 - INFO - Email moved to trash: Delivery Status Notification (Delay)
+2024-06-07 13:50:26,410 - INFO - Email subject: Delivery Status Notification (Failure)
+2024-06-07 13:50:27,199 - INFO - Email moved to trash: Delivery Status Notification (Failure)
+2024-06-07 13:50:28,841 - INFO - Email subject: Evgenii Pak English lessons
+2024-06-07 13:50:29,639 - INFO - Email moved to trash: Evgenii Pak English lessons
+2024-06-07 13:50:30,098 - INFO - Logged out from the email server.
+2024-06-07 13:50:57,543 - INFO - Connected to the mail server.
+2024-06-07 13:50:58,070 - INFO - Inbox selected.
+2024-06-07 13:50:58,847 - INFO - Found 17686 emails.
+2024-06-07 13:50:59,322 - INFO - Email subject: RE: Evgenii Pak English lessons
+2024-06-07 13:51:01,128 - INFO - Email subject: Fwd: Evgenii Pak English lessons
+2024-06-07 13:51:01,603 - INFO - Email subject: Incomplete job application deleted
+2024-06-07 13:51:02,072 - INFO - Email subject: Job Application Confirmation
+2024-06-07 13:51:02,548 - INFO - Email subject: Application for a position with K&S Freighters
+2024-06-07 13:51:03,030 - INFO - Email subject: Your application for JobF150772 - Travel Consultant - Brisbane CBD has been received
+2024-06-07 13:51:03,526 - INFO - Email subject: RE: Re:
+2024-06-07 13:51:04,018 - INFO - Email subject: Complete your Dropbox setup!
+2024-06-07 13:51:04,492 - INFO - Email subject: You've linked a new computer -- now get more free Dropbox space!
+2024-06-07 13:51:04,969 - INFO - Email subject: [Expensify] Please validate your email address
+2024-06-07 13:51:05,458 - INFO - Email subject: RE: Evgenii Pak English lessons
+2024-06-07 13:51:06,256 - INFO - Email moved to trash: RE: Evgenii Pak English lessons
+2024-06-07 13:51:08,004 - INFO - Email subject: Fwd: Evgenii Pak English lessons
+2024-06-07 13:51:08,792 - INFO - Email moved to trash: Fwd: Evgenii Pak English lessons
+2024-06-07 13:51:09,278 - INFO - Email subject: Incomplete job application deleted
+2024-06-07 13:51:10,904 - INFO - Email moved to trash: Incomplete job application deleted
+2024-06-07 13:51:11,373 - INFO - Email subject: Job Application Confirmation
+2024-06-07 13:51:12,153 - INFO - Email moved to trash: Job Application Confirmation
+2024-06-07 13:51:12,632 - INFO - Email subject: Application for a position with K&S Freighters
+2024-06-07 13:51:13,440 - INFO - Email moved to trash: Application for a position with K&S Freighters
+2024-06-07 13:51:13,921 - INFO - Email subject: Your application for JobF150772 - Travel Consultant - Brisbane CBD has been received
+2024-06-07 13:51:14,696 - INFO - Email moved to trash: Your application for JobF150772 - Travel Consultant - Brisbane CBD has been received
+2024-06-07 13:51:15,181 - INFO - Email subject: RE: Re:
+2024-06-07 13:51:15,963 - INFO - Email moved to trash: RE: Re:
+2024-06-07 13:51:16,439 - INFO - Email subject: Complete your Dropbox setup!
+2024-06-07 13:51:17,223 - INFO - Email moved to trash: Complete your Dropbox setup!
+2024-06-07 13:51:17,692 - INFO - Email subject: You've linked a new computer -- now get more free Dropbox space!
+2024-06-07 13:51:18,473 - INFO - Email moved to trash: You've linked a new computer -- now get more free Dropbox space!
+2024-06-07 13:51:18,948 - INFO - Email subject: [Expensify] Please validate your email address
+2024-06-07 13:51:18,961 - INFO - Unsubscribe link opened: unsubscribe?email=ilo.laz12%40gmail.com&amp;validateCode=QIGDN
+2024-06-07 13:51:19,749 - INFO - Email moved to trash: [Expensify] Please validate your email address
+2024-06-07 13:51:20,204 - INFO - Logged out from the email server.
+2024-06-07 13:51:40,117 - INFO - Connected to the mail server.
+2024-06-07 13:51:40,632 - INFO - Inbox selected.
+2024-06-07 13:51:41,399 - INFO - Found 17676 emails.
+2024-06-07 13:51:41,876 - INFO - Email subject: Welcome to Expensify!
+2024-06-07 13:51:42,346 - INFO - Email subject: Jameel Khan wants to share "Elec2004" with you
+2024-06-07 13:51:42,818 - INFO - Email subject: Please verify your email address
+2024-06-07 13:51:43,302 - INFO - Email subject: Greetings from Google - Ilona Lazareva
+2024-06-07 13:51:43,786 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:51:44,495 - INFO - Email subject: SunnyQueen IT Postion
+2024-06-07 13:51:45,025 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:51:45,498 - INFO - Email subject: You've added Dropbox for iPhone
+2024-06-07 13:51:45,977 - INFO - Email subject: Out of the Office until Monday, Oct 29th Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:51:46,483 - INFO - Email subject: *Please Confirm* Google Interview - IIona Lazareva
+2024-06-07 13:51:46,954 - INFO - Email subject: Welcome to Expensify!
+2024-06-07 13:51:47,738 - INFO - Email moved to trash: Welcome to Expensify!
+2024-06-07 13:51:48,208 - INFO - Email subject: Jameel Khan wants to share "Elec2004" with you
+2024-06-07 13:51:49,014 - INFO - Email moved to trash: Jameel Khan wants to share "Elec2004" with you
+2024-06-07 13:51:49,491 - INFO - Email subject: Please verify your email address
+2024-06-07 13:51:50,271 - INFO - Email moved to trash: Please verify your email address
+2024-06-07 13:51:50,743 - INFO - Email subject: Greetings from Google - Ilona Lazareva
+2024-06-07 13:51:51,526 - INFO - Email moved to trash: Greetings from Google - Ilona Lazareva
+2024-06-07 13:51:52,010 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:51:52,801 - INFO - Email moved to trash: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:51:53,469 - INFO - Email subject: SunnyQueen IT Postion
+2024-06-07 13:51:54,254 - INFO - Email moved to trash: SunnyQueen IT Postion
+2024-06-07 13:51:54,769 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:51:55,588 - INFO - Email moved to trash: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:51:56,063 - INFO - Email subject: You've added Dropbox for iPhone
+2024-06-07 13:51:56,853 - INFO - Email moved to trash: You've added Dropbox for iPhone
+2024-06-07 13:51:57,329 - INFO - Email subject: Out of the Office until Monday, Oct 29th Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:51:58,109 - INFO - Email moved to trash: Out of the Office until Monday, Oct 29th Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:51:58,613 - INFO - Email subject: *Please Confirm* Google Interview - IIona Lazareva
+2024-06-07 13:51:59,404 - INFO - Email moved to trash: *Please Confirm* Google Interview - IIona Lazareva
+2024-06-07 13:51:59,864 - INFO - Logged out from the email server.
+2024-06-07 13:52:08,255 - INFO - Connected to the mail server.
+2024-06-07 13:52:08,770 - INFO - Inbox selected.
+2024-06-07 13:52:09,569 - INFO - Found 17666 emails.
+2024-06-07 13:52:10,064 - INFO - Email subject: FW: Tuition
+2024-06-07 13:52:10,542 - INFO - Email subject: [URGENT] TODAY'S interview canceled - Ilona Lazareva
+2024-06-07 13:52:11,015 - INFO - Email subject: Re: [URGENT] TODAY'S interview canceled - Ilona Lazareva
+2024-06-07 13:52:11,489 - INFO - Email subject: Re: [URGENT] TODAY'S interview canceled - Ilona Lazareva
+2024-06-07 13:52:12,000 - INFO - Email subject: *Please Confirm* Google Interview - IIona Lazareva
+2024-06-07 13:52:12,497 - INFO - Email subject: Re: *Please Confirm* Google Interview - IIona Lazareva
+2024-06-07 13:52:13,011 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:52:13,540 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:52:14,032 - INFO - Email subject: *Please Confirm* Google Interview - IIona Lazareva
+2024-06-07 13:52:14,502 - INFO - Email subject: Private and Confidential
+2024-06-07 13:52:14,991 - INFO - Email subject: FW: Tuition
+2024-06-07 13:52:15,767 - INFO - Email moved to trash: FW: Tuition
+2024-06-07 13:52:16,246 - INFO - Email subject: [URGENT] TODAY'S interview canceled - Ilona Lazareva
+2024-06-07 13:52:17,016 - INFO - Email moved to trash: [URGENT] TODAY'S interview canceled - Ilona Lazareva
+2024-06-07 13:52:17,492 - INFO - Email subject: Re: [URGENT] TODAY'S interview canceled - Ilona Lazareva
+2024-06-07 13:52:18,275 - INFO - Email moved to trash: Re: [URGENT] TODAY'S interview canceled - Ilona Lazareva
+2024-06-07 13:52:18,759 - INFO - Email subject: Re: [URGENT] TODAY'S interview canceled - Ilona Lazareva
+2024-06-07 13:52:19,603 - INFO - Email moved to trash: Re: [URGENT] TODAY'S interview canceled - Ilona Lazareva
+2024-06-07 13:52:20,094 - INFO - Email subject: *Please Confirm* Google Interview - IIona Lazareva
+2024-06-07 13:52:20,898 - INFO - Email moved to trash: *Please Confirm* Google Interview - IIona Lazareva
+2024-06-07 13:52:21,388 - INFO - Email subject: Re: *Please Confirm* Google Interview - IIona Lazareva
+2024-06-07 13:52:22,173 - INFO - Email moved to trash: Re: *Please Confirm* Google Interview - IIona Lazareva
+2024-06-07 13:52:22,687 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:52:23,471 - INFO - Email moved to trash: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:52:23,995 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:52:24,789 - INFO - Email moved to trash: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:52:25,283 - INFO - Email subject: *Please Confirm* Google Interview - IIona Lazareva
+2024-06-07 13:52:26,333 - INFO - Email moved to trash: *Please Confirm* Google Interview - IIona Lazareva
+2024-06-07 13:52:26,801 - INFO - Email subject: Private and Confidential
+2024-06-07 13:52:27,570 - INFO - Email moved to trash: Private and Confidential
+2024-06-07 13:52:28,023 - INFO - Logged out from the email server.
+2024-06-07 13:52:40,777 - INFO - Connected to the mail server.
+2024-06-07 13:52:41,298 - INFO - Inbox selected.
+2024-06-07 13:52:42,162 - INFO - Found 17656 emails.
+2024-06-07 13:52:42,680 - INFO - Email subject: FW: Tuition
+2024-06-07 13:52:43,197 - INFO - Email subject: RE: Re:
+2024-06-07 13:52:43,703 - INFO - Email subject: RE: RE: Re:
+2024-06-07 13:52:44,294 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:52:44,819 - INFO - Email subject: *Please Confirm* Google Interview-Ilona Lazareva
+2024-06-07 13:52:45,317 - INFO - Email subject: RE: 
+2024-06-07 13:52:45,815 - INFO - Email subject: Flight Centre Travel Academy  Information Session
+2024-06-07 13:52:46,303 - INFO - Email subject: Explore great iOS Dropbox apps
+2024-06-07 13:52:46,790 - INFO - Email subject: Google Account password changed
+2024-06-07 13:52:47,273 - INFO - Email subject: Your Flight Centre Application
+2024-06-07 13:52:47,780 - INFO - Email subject: FW: Tuition
+2024-06-07 13:52:48,571 - INFO - Email moved to trash: FW: Tuition
+2024-06-07 13:52:49,061 - INFO - Email subject: RE: Re:
+2024-06-07 13:52:49,924 - INFO - Email moved to trash: RE: Re:
+2024-06-07 13:52:50,432 - INFO - Email subject: RE: RE: Re:
+2024-06-07 13:52:51,226 - INFO - Email moved to trash: RE: RE: Re:
+2024-06-07 13:52:51,779 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:52:52,578 - INFO - Email moved to trash: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:52:53,097 - INFO - Email subject: *Please Confirm* Google Interview-Ilona Lazareva
+2024-06-07 13:52:53,889 - INFO - Email moved to trash: *Please Confirm* Google Interview-Ilona Lazareva
+2024-06-07 13:52:54,393 - INFO - Email subject: RE: 
+2024-06-07 13:52:55,200 - INFO - Email moved to trash: RE: 
+2024-06-07 13:52:55,680 - INFO - Email subject: Flight Centre Travel Academy  Information Session
+2024-06-07 13:52:55,694 - INFO - Unsubscribe link opened: Unsubscribe</font></a><br/><br/><br/></font>
+</p>
+<p align=
+2024-06-07 13:52:56,473 - INFO - Email moved to trash: Flight Centre Travel Academy  Information Session
+2024-06-07 13:52:56,958 - INFO - Email subject: Explore great iOS Dropbox apps
+2024-06-07 13:52:56,978 - INFO - Unsubscribe link opened: unsubscribe</a> at any time, or <a href=
+2024-06-07 13:52:57,764 - INFO - Email moved to trash: Explore great iOS Dropbox apps
+2024-06-07 13:52:58,242 - INFO - Email subject: Google Account password changed
+2024-06-07 13:52:59,118 - INFO - Email moved to trash: Google Account password changed
+2024-06-07 13:52:59,600 - INFO - Email subject: Your Flight Centre Application
+2024-06-07 13:53:00,376 - INFO - Email moved to trash: Your Flight Centre Application
+2024-06-07 13:53:00,838 - INFO - Logged out from the email server.
+2024-06-07 13:53:14,758 - INFO - Connected to the mail server.
+2024-06-07 13:53:15,290 - INFO - Inbox selected.
+2024-06-07 13:53:16,061 - INFO - Found 17646 emails.
+2024-06-07 13:53:16,592 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:53:17,065 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:53:17,566 - INFO - Email subject: Congratulations!
+2024-06-07 13:53:18,057 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:53:18,544 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:53:19,014 - INFO - Email subject: Casual Liquipel Team Member - AU2382AS000207
+2024-06-07 13:53:20,442 - INFO - Email subject: Fwd: proposal
+2024-06-07 13:53:20,934 - INFO - Email subject: Application with Dare Gallery
+2024-06-07 13:53:23,220 - INFO - Email subject: A book - as I promised - and to be continue
+2024-06-07 13:53:23,690 - INFO - Email subject: Application received
+2024-06-07 13:53:24,189 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:53:24,978 - INFO - Email moved to trash: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:53:25,449 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:53:26,296 - INFO - Email moved to trash: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:53:26,772 - INFO - Email subject: Congratulations!
+2024-06-07 13:53:27,555 - INFO - Email moved to trash: Congratulations!
+2024-06-07 13:53:28,041 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:53:28,825 - INFO - Email moved to trash: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:53:29,298 - INFO - Email subject: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:53:30,078 - INFO - Email moved to trash: Re: Greetings from Google - Ilona Lazareva
+2024-06-07 13:53:30,623 - INFO - Email subject: Casual Liquipel Team Member - AU2382AS000207
+2024-06-07 13:53:31,403 - INFO - Email moved to trash: Casual Liquipel Team Member - AU2382AS000207
+2024-06-07 13:53:32,186 - INFO - Email subject: Fwd: proposal
+2024-06-07 13:53:32,974 - INFO - Email moved to trash: Fwd: proposal
+2024-06-07 13:53:33,456 - INFO - Email subject: Application with Dare Gallery
+2024-06-07 13:53:34,235 - INFO - Email moved to trash: Application with Dare Gallery
+2024-06-07 13:53:36,144 - INFO - Email subject: A book - as I promised - and to be continue
+2024-06-07 13:53:36,941 - INFO - Email moved to trash: A book - as I promised - and to be continue
+2024-06-07 13:53:37,416 - INFO - Email subject: Application received
+2024-06-07 13:53:38,196 - INFO - Email moved to trash: Application received
+2024-06-07 13:53:38,654 - INFO - Logged out from the email server.
+2024-06-07 13:53:58,660 - INFO - Connected to the mail server.
+2024-06-07 13:53:59,190 - INFO - Inbox selected.
+2024-06-07 13:53:59,995 - INFO - Found 17636 emails.
+2024-06-07 13:54:00,497 - INFO - Email subject: Application Submitted
+2024-06-07 13:54:01,012 - INFO - Email subject: Re: Request for Interview scheduling (From Google)
+2024-06-07 13:54:01,508 - INFO - Email subject: Re: Request for Interview scheduling (From Google)
+2024-06-07 13:54:02,001 - INFO - Email subject: Request new account confirmation required
+2024-06-07 13:54:02,488 - INFO - Email subject: Parks Online Account confirmed
+2024-06-07 13:54:02,986 - INFO - Email subject: Thank you
+2024-06-07 13:54:03,476 - INFO - Email subject: Request Password reset confirmation request
+2024-06-07 13:54:03,965 - INFO - Email subject: ParksQ Online Account Password Reset
+2024-06-07 13:54:05,168 - INFO - Email subject: Smart Service Queensland - Receipt: 1859559
+2024-06-07 13:54:05,665 - INFO - Email subject: Your Onetest account has been Inactive for 90 days
+2024-06-07 13:54:06,150 - INFO - Email subject: Application Submitted
+2024-06-07 13:54:06,973 - INFO - Email moved to trash: Application Submitted
+2024-06-07 13:54:07,472 - INFO - Email subject: Re: Request for Interview scheduling (From Google)
+2024-06-07 13:54:08,283 - INFO - Email moved to trash: Re: Request for Interview scheduling (From Google)
+2024-06-07 13:54:08,776 - INFO - Email subject: Re: Request for Interview scheduling (From Google)
+2024-06-07 13:54:09,588 - INFO - Email moved to trash: Re: Request for Interview scheduling (From Google)
+2024-06-07 13:54:10,078 - INFO - Email subject: Request new account confirmation required
+2024-06-07 13:54:10,887 - INFO - Email moved to trash: Request new account confirmation required
+2024-06-07 13:54:11,375 - INFO - Email subject: Parks Online Account confirmed
+2024-06-07 13:54:12,180 - INFO - Email moved to trash: Parks Online Account confirmed
+2024-06-07 13:54:12,673 - INFO - Email subject: Thank you
+2024-06-07 13:54:13,474 - INFO - Email moved to trash: Thank you
+2024-06-07 13:54:13,965 - INFO - Email subject: Request Password reset confirmation request
+2024-06-07 13:54:14,767 - INFO - Email moved to trash: Request Password reset confirmation request
+2024-06-07 13:54:15,257 - INFO - Email subject: ParksQ Online Account Password Reset
+2024-06-07 13:54:16,051 - INFO - Email moved to trash: ParksQ Online Account Password Reset
+2024-06-07 13:54:16,840 - INFO - Email subject: Smart Service Queensland - Receipt: 1859559
+2024-06-07 13:54:17,642 - INFO - Email moved to trash: Smart Service Queensland - Receipt: 1859559
+2024-06-07 13:54:18,145 - INFO - Email subject: Your Onetest account has been Inactive for 90 days
+2024-06-07 13:54:18,163 - INFO - Unsubscribe link opened: unsubscribe</a>.</p>
+			
+				</font>
+		
+2024-06-07 13:54:18,977 - INFO - Email moved to trash: Your Onetest account has been Inactive for 90 days
+2024-06-07 13:54:19,455 - INFO - Logged out from the email server.
+2024-06-07 13:54:37,074 - INFO - Connected to the mail server.
+2024-06-07 13:54:37,584 - INFO - Inbox selected.
+2024-06-07 13:54:38,444 - INFO - Found 17626 emails.
+2024-06-07 13:54:38,931 - INFO - Email subject: Your application for Future Management Opportunities 2013  |
+ Sunshine Coast is not yet complete
+2024-06-07 13:54:39,408 - INFO - Email subject: Thank you for signing up and joining our community
+2024-06-07 13:54:39,885 - INFO - Email subject: Thank you for signing up and joining our community
+2024-06-07 13:54:40,358 - INFO - Email subject: Thank you for signing up and joining our community
+2024-06-07 13:54:40,828 - INFO - Email subject: Job Application Confirmation
+2024-06-07 13:54:41,305 - INFO - Email subject: Automatic reply: Events Administrator and Business Development
+ application
+2024-06-07 13:54:41,790 - ERROR - Failed to fetch and parse emails: expected string or bytes-like object, got 'NoneType'
+2024-06-07 13:54:42,264 - INFO - Email subject: Your application for Future Management Opportunities 2013  |
+ Sunshine Coast is not yet complete
+2024-06-07 13:54:43,059 - INFO - Email moved to trash: Your application for Future Management Opportunities 2013  |
+ Sunshine Coast is not yet complete
+2024-06-07 13:54:43,533 - INFO - Email subject: Thank you for signing up and joining our community
+2024-06-07 13:54:44,333 - INFO - Email moved to trash: Thank you for signing up and joining our community
+2024-06-07 13:54:44,807 - INFO - Email subject: Thank you for signing up and joining our community
+2024-06-07 13:54:45,591 - INFO - Email moved to trash: Thank you for signing up and joining our community
+2024-06-07 13:54:46,071 - INFO - Email subject: Thank you for signing up and joining our community
+2024-06-07 13:54:46,854 - INFO - Email moved to trash: Thank you for signing up and joining our community
+2024-06-07 13:54:47,328 - INFO - Email subject: Job Application Confirmation
+2024-06-07 13:54:48,112 - INFO - Email moved to trash: Job Application Confirmation
+2024-06-07 13:54:48,590 - INFO - Email subject: Automatic reply: Events Administrator and Business Development
+ application
+2024-06-07 13:54:49,382 - INFO - Email moved to trash: Automatic reply: Events Administrator and Business Development
+ application
+2024-06-07 13:54:49,867 - ERROR - Failed to unsubscribe and move emails to trash: expected string or bytes-like object, got 'NoneType'
+2024-06-07 13:54:50,336 - INFO - Logged out from the email server.
+2024-06-07 13:55:07,677 - INFO - Connected to the mail server.
+2024-06-07 13:55:08,200 - INFO - Inbox selected.
+2024-06-07 13:55:08,970 - INFO - Found 17620 emails.
+2024-06-07 13:55:09,453 - ERROR - Failed to fetch and parse emails: expected string or bytes-like object, got 'NoneType'
+2024-06-07 13:55:09,926 - ERROR - Failed to unsubscribe and move emails to trash: expected string or bytes-like object, got 'NoneType'
+2024-06-07 13:55:10,382 - INFO - Logged out from the email server.
+2024-06-07 13:56:20,125 - INFO - Connected to the mail server.
+2024-06-07 13:56:20,642 - INFO - Inbox selected.
+2024-06-07 13:56:21,407 - INFO - Found 17620 emails.
+2024-06-07 13:56:21,897 - ERROR - Failed to fetch and parse emails: expected string or bytes-like object, got 'NoneType'
+2024-06-07 13:56:22,389 - ERROR - Failed to unsubscribe and move emails to trash: expected string or bytes-like object, got 'NoneType'
+2024-06-07 13:56:22,846 - INFO - Logged out from the email server.

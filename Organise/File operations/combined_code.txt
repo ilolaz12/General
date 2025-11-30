@@ -1,0 +1,902 @@
+// Content of file: newmain.c
+// Content of file: newmain.c
+/*
+ * File:   newmain.c
+ * Author: Ilona U1551668
+ * with help of "Elevator_Control_Stage1_2024" by phythian
+ * Created on 8 March 2024, 7:29 PM
+ */
+
+#include <xc.h>
+#include <stdio.h>
+#include <stdint.h>
+#include "lcd.h"
+#include "functions.h"
+
+extern enum State currentState;  // Declare the external usage of currentState
+extern unsigned int timerFlag;  // Declare the external usage of timerFlag
+
+
+void main(void) {
+    // Call the initialization functions
+    init_IO();
+    init_adc();
+    init_pwm();
+    init_LCD();
+    init_reset();
+    init_buttons();
+    init_motor_control();
+    init_door();
+
+    unsigned int position = get_position_mm();
+    unsigned int nearestFloor = get_pos_floor(pos);
+    unsigned int currentFloor = nearestFloor;
+    int targetFloor = 0; // Declare and initialize targetFloor.
+    int buttonPressed = 0;
+    
+    while(1) { // endless loop	
+        position = get_position_mm();  // Update position inside loop
+        nearestFloor = get_pos_floor(position);
+        currentFloor = nearestFloor;  // Updated currentFloor with nearestFloor, if applicable
+        int b = buttons_in(); 
+        display_mm(position);
+        display_flr(position);
+        __delay_ms(100);
+        
+        switch (currentState) {
+            case IDLE:
+                    display_flr(currentFloor); // Refresh the display with current floor
+                    int buttonPressed = buttons_out(); // Check if any request button is pressed
+
+                    switch (buttonPressed) {
+                        case 1: // Floor 1 button
+                        case 2: // Floor 2 button
+                        case 3: // Floor 2 button
+                        case 4: // Floor 3 button
+                            targetFloor = buttonPressed; // Set targetFloor based on the button pressed
+                            if (door_check() == DOOR_CLOSED) { // Ensure door is closed before moving
+                                if (currentFloor < targetFloor) {
+                                    currentState = MOVING_UP;
+                                    move(UP_SPEED, UP); // Call move with defined speed and direction
+                                } else if (currentFloor > targetFloor) {
+                                    currentState = MOVING_DOWN;
+                                    move(DOWN_SPEED, DOWN); // Call move with defined speed and direction
+                                }
+                            }
+                            break;
+                        case 5: // Door open button
+                            if (door_check() == DOOR_CLOSED) { // Only open if door is currently closed
+                                door_control(DOOR_OPEN);
+                            }
+                            break;
+                        case 6: // Door close button
+                            if (door_check() == DOOR_OPEN) { // Only close if door is currently open
+                                door_control(DOOR_CLOSED);
+                            }
+                            break;
+                        default:
+                            // Handle no valid button press or maintain IDLE if nothing is pressed
+                            break;
+                    }
+                    break; 
+            case MOVING_UP:
+                display_flr(currentFloor);
+                if (door_check()) {  // Ensure the door is closed before moving
+                    move(UP_SPEED, UP);  // Move up with defined speed
+                } else {
+                    currentState = EMERGENCY;  // Switch to emergency state if door is not closed
+                }
+                if (currentFloor == targetFloor) {
+                    move(0, UP);  // Stop the elevator by setting speed to 0
+                    currentState = DOORS_OPEN;
+                    door(OPEN);
+                    buzzer_control(1);  // Turn on the buzzer
+                    delay_ms(250);      // Buzzer on for 250 ms
+                    buzzer_control(0);  // Turn off the buzzer
+                    start_door_open_timer(8);  // Start door open timer for 8 seconds
+                }
+                break;
+            case MOVING_DOWN:
+                display_flr(currentFloor);
+                if (door_check()) {
+                    move(DOWN_SPEED, DOWN);  // Move down with defined speed
+                } else {
+                    currentState = EMERGENCY; // Handle an emergency if door opens unexpectedly
+                } 
+                if (currentFloor == targetFloor) {
+                    move(0, UP); // Stop the elevator
+                    currentState = DOORS_OPEN;
+                    door(OPEN);
+                    // Activate the buzzer for 250 ms
+                    buzzer_control(1);  // Turn on the buzzer
+                    delay_ms(250);      // Delay for 250 ms
+                    buzzer_control(0);  // Turn off the buzzer
+                    start_door_open_timer(8); // Start the door open timer for 8 seconds
+                }
+                break;
+            case DOORS_OPEN:
+                display_flr(currentFloor); // Refresh the display with current floor
+                b = buttons_in(); // Check if any request button is pressed
+                if (!door_open_timer) { // If the timer is not already running
+                    start_door_open_timer(8); // Start 8-second timer for the door being open
+                } 
+                if (door_o_timer_exp()) { // Check if 8 seconds have passed
+                    door(CLOSE); // Close the door
+                    if (currentFloor < targetFloor) {
+                        currentState = MOVING_UP;
+                    } else if (currentFloor > targetFloor) {
+                        currentState = MOVING_DOWN;
+                    } else {
+                    currentState = IDLE; // Transition to the IDLE state
+                    }
+                    door_open_timer = 0; // Reset the door-open timer
+                }
+                break;
+            case EMERGENCY: // Handle emergency situations
+                motor_stop(); // Immediately stop any movement
+                // Check the current position and determine the nearest floor
+                if (currentFloor != nearestFloor) {
+                    move(nearestFloor); // If not already at a floor, move to the nearest floor
+                }
+                door(OPEN); // Open the doors once the floor is reached or if already at a floor
+                // Display emergency message on LCD
+                lcd_clear();
+                //lcd_set_cursor(0, 0);
+                lcd_str("EMERGENCY");
+                //lcd_set_cursor(1, 0);
+                lcd_str("Do not use elevator");
+                // Reset to IDLE or a safe state after emergency is cleared
+                currentState = IDLE;
+                break;
+            case MAINTENANCE:
+                // Check for maintenance mode trigger
+                if (currentFloor == 1 && open_button_pin == 1 && close_button_pin == 1) {
+                    currentState = MAINTENANCE;
+                }
+                lcd_clear();
+                lcd_str("Maintenance Mode");
+                // Move to floor 3
+                targetFloor = 3;
+                move(targetFloor, UP); 
+                while (currentFloor != targetFloor) {   
+                    display_mm(pos); // Continuously display the current position
+                    __delay_ms(100); // Short delay for readability and CPU relief
+                }
+                // Move back to floor 1
+                targetFloor = 1;
+                move(targetFloor, UP);
+                while (currentFloor != targetFloor) {
+                    display_mm(pos); // Continuously display the current position
+                    __delay_ms(100); // Short delay for readability and CPU relief
+                }
+                // Return to normal operation
+                lcd_clear();
+                lcd_str("Maintenance Complete");
+                currentState = IDLE;
+                break;
+            }
+        if (timerFlag) { // Timer-based actions
+            timerFlag = 0; // Reset the timer flag
+        }
+    }
+}
+// Content of file: delay.c
+/*
+ * File:   delay.c
+ * Author: Ilona U1551668
+ *
+ * Created on 21 March 2024, 7:35 PM
+ */
+
+#include <xc.h>
+#include <stdio.h>
+#include <stdint.h>
+#include "lcd.h"
+#include "functions.h"
+
+#include <xc.h>
+#include <stdio.h>
+#include <stdint.h>
+#include "lcd.h"
+#include "functions.h"
+
+volatile unsigned char timer_expired_flag; // Flag to indicate timer expiration
+
+// Initialize Timer0 for 1 ms tick assuming a prescaler of 256
+volatile unsigned short TMR0 = 65536 - (unsigned int)((5000 * (_XTAL_FREQ / 4 / 256)) % 65536);
+
+void delay_ms(unsigned int milliseconds) { // Function to introduce delay in ms
+    while(milliseconds--) {
+        __delay_ms(1); // Built-in macro to delay 1 ms
+    }
+}
+void setup_timer(void) {
+    T0CON = 0x07; // 16-bit, internal clock, prescaler 1:256
+    TMR0 = 65536 - (unsigned int)((5000 * (_XTAL_FREQ / 4 / 256)) % 65536); // Calculate and set TMR0
+    INTCONbits.TMR0IE = 1;  // Enable Timer0 interrupt
+    INTCONbits.TMR0IF = 0;  // Clear Timer0 interrupt flag
+    T0CONbits.TMR0ON = 1;  // Turn on Timer0
+}
+
+void __interrupt(high_priority) high_priority_isr(void) {
+    // Handle Timer0 interrupt
+    if (INTCONbits.TMR0IF) {
+        timer_expired_flag = 1; // Set timer expiration flag
+        TMR0 = 65536 - (unsigned int)((5000 * (_XTAL_FREQ / 4 / 256)) % 65536); // Reload Timer0
+        INTCONbits.TMR0IF = 0; // Clear Timer0 interrupt flag
+    }
+
+    // Example: handle INT1 interrupt (assuming it's also high-priority)
+    if (INTCON3bits.INT1IF) {
+        currentState = EMERGENCY; // Assume you have proper handling here
+        INTCON3bits.INT1IF = 0; // Clear interrupt flag
+    }
+}
+
+void __interrupt(low_priority) low_priority_isr(void) {
+    // Handle any low-priority interrupts here, if necessary
+}
+
+void start_door_open_timer(int seconds) { // Start the door-open timer
+    door_open_timer = (unsigned int)(seconds * 1000 / 5);  // Convert seconds to the number of 5ms intervals
+}
+
+int door_o_timer_exp() { // Check if the door-open timer has expired
+    if (door_open_timer <= 0) {
+        door_open_timer = 0; // Ensure the timer does not go negative
+        return 1; // Timer has expired
+    }
+    return 0; // Timer is still counting down
+}
+
+// Content of file: elevator.c
+/*
+ * File:   elevator.c
+ * Author: Ilona U1551668
+ * with help of "Elevator_Control_Stage1_2024" by phythian
+ * Created on 31 March 2024, 1:01 PM
+ */
+
+#include <xc.h>
+#include <stdio.h>
+#include <stdint.h>
+#include "lcd.h"
+#include "functions.h"
+
+void door_control(enum DoorState state) {
+    switch (state) {
+        case DOOR_OPEN:
+            LATBbits.LB5 = 1;  // Logic to open the door
+            break;
+        case DOOR_CLOSED:
+            LATBbits.LB5 = 0;  // Logic to close the door
+            break;
+        default:
+            // Handle other states or errors if necessary
+            break;
+    }
+}
+
+int door_check(void) {
+    return (DOOR_STATUS_PIN == 1) ? DOOR_CLOSED : DOOR_OPEN;
+}
+
+void elevator_status(void) {
+    unsigned int pos = get_position_mm();  
+    int currentFloor = get_pos_floor(pos);
+    enum DoorState doorState = door_check();       // Check the door state
+    // Display current floor and position on LCD
+    lcd_cmd(LCD_CLR);              // Clear the display
+    lcd_puts("Floor: ");
+    display_flr(currentFloor);      // Adjusted to use single parameter if that suits your display logic
+    lcd_cmd(LCD_L2);               // Move cursor to the second line
+    lcd_puts("Pos: ");
+    display_mm(pos);
+    lcd_puts(" Door: ");
+    lcd_puts(doorState == DOOR_OPEN ? "Open" : "Closed");
+
+    // Update status lights based on the door state and current floor
+    update_status_lights(doorState, currentFloor);
+
+    // Determine elevator status based on system checks
+    enum ElevatorStatus status = (currentFloor < 0 || doorState == DOOR_ERROR) ? ELEVATOR_FAULT : ELEVATOR_OK;
+    if (status == ELEVATOR_FAULT) {
+        lcd_puts(" Fault!");
+    }
+}
+
+
+void door(unsigned int open_close) {
+    DOOR_CONTROL_PIN = (unsigned char)open_close;
+}
+
+int buttons_out() { // Check interior button states and respond accordingly
+    if (A == 0) return 1; // Floor 1 UP
+    if (B == 0) return 2; // Floor 2 UP
+    if (C == 0) return 3; // Floor 2 DOWN
+    if (D == 0) return 4; // Floor 3 DOWN
+    if (open_button_pin == 0) return 5; // Door open request
+    if (close_button_pin == 0) return 6; // Door close request
+    return 0;
+}
+int buttons_in(void) { // Check elevator button states and respond accordingly
+    if (F1 == 0) return 1;
+    if (F2 == 0) return 2;
+    if (F3 == 0) return 3;
+    if (open_button_pin == 0) return 5; // Door open request
+    if (close_button_pin == 0) return 6; // Door close request
+    return 0;
+}
+
+void move(unsigned int speed, enum Direction dir) {
+    if (dir == STOPPED) { // Explicitly stop the motor
+        motor_stop();
+    } else if (speed <= 100) {
+        // Calculate the duty cycle for PWM based on speed
+        unsigned char dutyCycle = (unsigned char)((speed * 255u) / 100u);
+        // Set PWM duty cycle
+        CCPR1L = dutyCycle;
+        // Set the direction pin
+        switch (dir) {
+            case UP:
+                UPDN = 1;  // UPDN is a pin or register setting for motor direction upwards
+                break;
+            case DOWN:
+                UPDN = 0;  // UPDN is a pin or register setting for motor direction downwards
+                break;
+            default:
+                motor_stop();  // Safely handle any unexpected direction values
+                break;
+        }
+    } else {
+        // If the speed is out of bounds, stop the motor
+        motor_stop();
+    }
+}
+
+int ajar(void) {
+    return (DOOR_AJAR_PIN == 1) ? 1 : 0;  // Return 1 if door is ajar, 0 if it's fully closed
+    return (LATBbits.LB5 == 1);
+}
+
+void check_door_status(void) {
+    if (ajar()) {
+        // Handle the situation when the door is not fully closed
+        printf("Warning: Door is ajar.\n");
+    } else {
+        // Door is fully closed, safe to proceed
+        printf("Door is securely closed.\n");
+    }
+}
+
+void buzzer_control(int state) {
+    buzzer_pin = (unsigned char)state;  // Set the buzzer pin high or low depending on the state
+}
+void start_buzzer_timer() { // Function to start a timer for 250 ms
+    TMR1 = (unsigned short)(65536 - (_XTAL_FREQ / 4 / 8 * 0.25));  // Prescaler 1:8 for 250 ms
+    PIE1bits.TMR1IE = 1;  // Enable Timer1 interrupt
+    PIR1bits.TMR1IF = 0;  // Clear Timer1 interrupt flag
+    T1CONbits.TMR1ON = 1; // Start Timer1
+}
+void updateUI() {
+    enum ElevatorStatus status;
+    display_status(status);
+}
+
+void update_status_lights(enum DoorState doorState, int floor) {
+    // Set LEDs or other indicators based on doorState and floor
+    if (doorState == DOOR_OPEN) {
+        // Activate door open light
+        PORTA |= (1 << DOOR_OPEN_LED_PIN); // Example, set specific bit high
+    } else {
+        // Deactivate door open light
+        PORTA &= ~(1 << DOOR_OPEN_LED_PIN); // Clear specific bit
+    }
+    // Reset all floor LEDs
+    PORTC &= ~((1 << FLOOR1_LED_PIN) | (1 << FLOOR2_LED_PIN) | (1 << FLOOR3_LED_PIN));
+    switch (floor) {
+        case 1:
+            PORTC |= (1 << FLOOR1_LED_PIN); // Set floor 1 LED
+            break;
+        case 2:
+            PORTC |= (1 << FLOOR2_LED_PIN); // Set floor 2 LED
+            break;
+        case 3:
+            PORTC |= (1 << FLOOR3_LED_PIN); // Set floor 3 LED
+            break;
+    }
+}
+// Content of file: io.c
+/*
+ * File:   io.c
+ * Author: Ilona U1551668
+ * with help of "Elevator_Control_Stage1_2024" by phythian
+ * Created on 21 March 2024, 7:35 PM
+ */
+#include <xc.h>
+#include <stdio.h>
+#include <stdint.h>
+#include "lcd.h"
+#include "functions.h"
+
+volatile unsigned int adc_result = 0;
+volatile unsigned char adc_ready = 0;
+
+void init_IO() {
+    TRISB = 0xFF; // Set PORTB (RB0-RB7) as inputs for buttons and door ajar
+    TRISD = 0x00; // Set PORTD (RD0-RD7) as outputs for display
+    TRISC = 0b11111000; // RC0, RC1, and RC2 as outputs for buzzer, PWM, and motor control
+    TRISD = 0x00; // PORTD as output for LCD Data
+    TRISA = 0xFF; //Initialize PORTA for inputs: Up/Down Control and Open/Close Push Buttons
+
+    // Position sensor - analog input
+    ADCON0 = 0x01;  // AN0 selected, turn on ADC
+    ADCON1 = 0x0E;  // Configure AN0 as analog and the rest as digital
+    ADCON2 = 0xA9; // Acquisition time and conversion clock
+    
+    // Door Control Relay
+    TRISEbits.TRISE0 = 0; // Set RE0 as output for Door Control Relay
+    INTCON2bits.RBPU = 0; // Enable pull-ups on PORTB for switches
+    
+    // Buzzer setup
+    LATCbits.LATC2 = 0;  // Initial state to low/off
+    TRISCbits.TRISC2 = 0; // Set the RC2 pin as an output
+
+    // Winch Unit + init_pwm
+    // up/down - Digital output
+    TRISD0 = 0; // Set RD0 as output for Up
+    TRISD1 = 0; // Set RD1 as output for Down
+    TRISC2 = 0;     // Set CCP1 pin as output
+    // Initialize PWM for speed control
+    PR2 = _PR2_VALUE_; // Set PWM frequency
+    CCP1CON = 0x0C; // PWM mode
+    T2CON = 0x04; // TMR2 ON
+    CCPR1L = 0x1E; // Initial duty cycle
+    // RCSTAbits.SPEN = 1; //enable serial port
+    // TXSTAbits.SYNC = 0; //clean sync bit
+    // TRISC = 0b10000000; //setTX and RX pins
+    
+    // set baud rate 9600 baud with FOSC 1MHZ
+    BAUDCONbits.BRG16 = 1;
+    TXSTAbits.BRGH =1;
+    SPBRG = 25;
+     // LCD setup
+    TRISEbits.TRISE1 = 0; // RE1 as output for LCD EN
+    TRISEbits.TRISE2 = 0; // RE2 as output for LCD RS
+    LATEbits.LATE1 = 0;  // Ensure LCD EN is low
+    LATEbits.LATE2 = 0;  // Ensure LCD RS is low   
+    
+    TXSTAbits.TXEN = 1; //enable the transmitter
+    TRISEbits.TRISE0 = 1; // Set RE0 as input for Circuit Breaker
+    TRISCbits.TRISC7 = 1; // Set RC7 as input for Emergency Signal
+    
+    setup_timer(); // Configure the hardware timer
+}
+
+void init_adc(void){ // digital inputs
+    // Configure the ADC
+    ADCON1 = 0x0E;  // Configure AN0 as analog and the rest as digital
+    ADCON0 = 0x01;  // AN0 selected, turn on ADC
+    ADCON2 = 0xA9;  // Acquisition time and conversion clock settings
+    // Set the TRIS register for the analog pin
+    TRISAbits.TRISA0 = 1; // Set RA0/AN0 as input for the Position Sensor
+    while(adc_ready == 0) {
+        __delay_us(100);  // Wait for ADC to be ready
+    }
+}
+
+void init_pwm(void) {
+    // PWM on RC2 (CCP1)
+    TRISCbits.TRISC2 = 0; // Set RC2 as output for PWM
+    PR2 = 254;            // Set PWM period
+    T2CON = 0x07;         // Timer2 on, prescaler settings as needed
+    CCP1CON = 0x0C;       // PWM mode on CCP1
+    CCPR1L = 0;           // Set PWM duty cycle: initialise speed to stop
+    // Configure motor direction control pins as output
+    TRISCbits.TRISC0 = 0; // Set RC0 as an output
+    TRISCbits.TRISC1 = 0; // Set RC1 as an output
+    // Configure motor direction control pins as output
+    TRISCbits.TRISC0 = 0; // Set RC0 as an output
+    TRISCbits.TRISC1 = 0; // Set RC1 as an output
+}
+unsigned int read_adc(unsigned int ch) {
+    while(adc_ready == 0){ // Wait for previous ADC read to complete
+        ADCON0bits.CHS = (unsigned char)ch;   // Set the ADC channel
+        ADCON0bits.GO = 1;     // Start the conversion
+        adc_ready = 0;         // Clear the ready flag
+    }
+    return adc_result;     // Return the ADC result
+}
+// Content of file: lcd.c
+#include <xc.h>
+#include <stdio.h>
+#include <stdint.h>
+#include "lcd.h"
+#include "functions.h"
+
+void lcd_cmd(unsigned char cmd) {
+    LCD_DATA = cmd;   // Send command to data port
+    LCD_RS = 0;       // Set RS to 0 for command mode
+    LCD_EN = 1;       // Enable pulse start
+    __delay_ms(1);    // Delay for processing
+    LCD_EN = 0;       // End pulse
+}
+
+void lcd_clear(void) {
+    lcd_cmd(0x01);  // Command to clear display
+    __delay_ms(2);  // Delay to complete clear
+}
+
+// Function to display a string on the LCD
+void lcd_str(const char* s) {
+    while(*s) {  // Loop through each character of the string
+        lcd_data(*s++);  // Increment pointer to next character
+    }
+}
+
+void init_LCD() {
+    TRISD = 0x00; // Set up data port as output
+    TRISEbits.RE1 = 0;  // Set RE1 as output for RS
+    TRISEbits.RE2 = 0;  // Set RE2 as output for Enable
+
+    // Basic initialization sequence for HD44780 LCD
+    __delay_ms(20);    // Wait for more than 15ms after Vcc rises to 4.5V
+    lcd_cmd(0x30);     // Function set: 8-bit, 1 line, 5x8 dots
+    __delay_ms(5);     // Wait more than 4.1ms
+    lcd_cmd(0x30);     // Function set: 8-bit, 1 line, 5x8 dots
+    __delay_us(100);   // Wait more than 100µs
+    lcd_cmd(0x30);     // Function set: 8-bit, 1 line, 5x8 dots
+
+    lcd_cmd(0x38);     // Function set: 8-bit, 2 lines, 5x8 dots
+    lcd_cmd(0x10);     // Set cursor
+    lcd_cmd(0x0C);     // Display ON; Cursor OFF
+    lcd_cmd(0x06);     // Entry mode set
+
+    __delay_ms(20);
+    lcd_cmd(LCD_CFG);
+    lcd_cmd(LCD_ON);
+    lcd_clear();
+    lcd_cmd(0x06);  // Entry Mode Set
+}
+// Implement lcd_puts for string output
+void lcd_puts(const char* s) {
+    while(*s) {
+        lcd_data(*s++);
+    }
+}
+// Function to send data to the LCD
+void lcd_data(unsigned char data) {
+    LCD_RS = 1;         // Set RS to 1 for data mode
+    LCD_DATA = data;    // Send data to data port
+    LCD_EN = 1;         // Enable pulse
+    __delay_us(40);     // Data write delay
+    LCD_EN = 0;         // End pulse
+}
+
+// Display floor information
+void display_flr(unsigned int position) {
+    char str[32]; // declare buffer for string operations
+    if (position > FLR3 + TOL) {
+        lcd_puts("Out of range");
+    } else if (position >= FLR1 - TOL && position <= FLR1 + TOL) {
+        sprintf(str, "Floor: 1 (%d mm)", position);
+        lcd_puts(str);
+    } else if (position >= FLR2 - TOL && position <= FLR2 + TOL) {
+        sprintf(str, "Floor: 2 (%d mm)", position);
+        lcd_puts(str);
+    } else if (position >= FLR3 - TOL && position <= FLR3 + TOL) {
+        sprintf(str, "Floor: 3 (%d mm)", position);
+        lcd_puts(str);
+    } else {
+        lcd_puts("Out of range");
+    }
+}
+
+void display_mm(unsigned int pos) {
+    char str[32];  // Is sufficient for output string?
+    sprintf(str, "position %4d", pos);
+    lcd_cmd(L_L2);
+    lcd_str(str);
+}
+// Content of file: motor.c
+/*
+ * File:   motor.c
+ * Author: Ilona U1551668
+ * with help of "Elevator_Control_Stage1_2024" by phythian
+ * Created on 26 March 2024, 3:37 AM
+ */
+
+#include <xc.h>
+#include <stdio.h>
+#include <stdint.h>
+#include "lcd.h"
+#include "functions.h"
+
+void motor_direction(int direction) {
+    switch (direction) {
+        case UP:
+            UPDN = 1;  // Set the direction pin for upward movement
+            SPEED = UP_SPEED;  // Set speed for upward movement
+            break;
+        case DOWN:
+            UPDN = 0;  // Set the direction pin for downward movement
+            SPEED = DOWN_SPEED;  // Set speed for downward movement
+            break;
+        case STOP:
+            SPEED = 0;  // Set speed to 0 to stop the motor
+            // Optional: Explicitly set UPDN to a safe state if required
+            break;
+        default:
+            UPDN = 0;  // Ensure motor is stopped if direction is undefined
+            SPEED = 0;  // Ensure speed is set to 0
+            break;
+    }
+}
+void motor_stop() { // Stops the motor
+    motor_direction(STOP);
+}
+// Adjust the speed control for motor.
+void motor_speed_control(int speed) {
+    if (speed < 0 || speed > 100) return;  // Guard clause for speed range
+
+    unsigned char dutyCycle = (unsigned char)((speed * 255u) / 100u);  // Convert to 8-bit value properly
+    CCPR1L = dutyCycle >> 2;  // Assign high byte
+    CCP1CON = (CCP1CON & 0xCF) | ((dutyCycle & 0x03) << 4);  // Handle low byte
+}
+
+void move_to_floor(int floor) {
+    if (currentFloor == floor) return; // Early exit if already on the correct floor
+    door_control(DOOR_CLOSED);  // Ensure door is closed before moving
+    enum Direction direction = (currentFloor < floor) ? UP : DOWN; // Use enum type for direction
+    move(100, direction); // Move with maximum speed
+    while (currentFloor != floor) {
+        update_position(); // Update current floor based on sensor input
+    }
+    move(0, STOP);  // Stop the elevator on arrival
+    door_control(DOOR_OPEN);  // Open door after stopping
+}
+// Content of file: sensors.c
+/*
+ * File:   sensors.c
+ * Author: Ilona U1551668 
+ * with help of "Elevator_Control_Stage1_2024" by phythian
+ * Created on 26 March 2024, 3:37 AM
+ */
+
+#include <xc.h>
+#include <stdio.h>
+#include <stdint.h>
+#include "lcd.h"
+#include "functions.h"
+
+extern unsigned int pos;
+
+unsigned int get_position_mm() {
+    float position_m = 0.0;
+    unsigned int raw = read_adc(0); // raw ADC 10-bit value, channel must match student hardware
+    float metres = ((6.0f * (float)raw) / 1024.0f) - 0.2f; // scale to position in metres
+    return (unsigned int)(position_m * 1000); // Convert meters to millimeters
+}
+
+unsigned int get_pos_floor(unsigned int pos) {
+    int which = 0;
+    if (pos < (FLR1 - TOL)) {
+        which = -1; // too low
+    } else if (pos <= (FLR1 + TOL)) {
+        which = 1;
+    } else if (pos <= (FLR2 + TOL)) {
+        which = 2;
+    } else if (pos <= (FLR3 + TOL)) {
+        which = 3;
+    } else {
+        which = -1; // too high or between floors
+    }
+    return which; // Return the floor number
+}
+
+void update_position(){
+    unsigned int position_mm = get_position_mm(); // Get current position in millimeters.
+    int currentFloor = get_pos_floor(position_mm); // Update the current floor based on new sensor data.
+}
+// Content of file: system_test.c
+/*
+ * File:   system_test.c
+ * Author: Ilona U1551668
+ * with help of "Elevator_Control_Stage1_2024" by phythian
+ * Created on 21 March 2024, 7:35 PM
+ */
+
+#include <xc.h>
+#include <stdio.h>
+#include <stdint.h>
+#include "lcd.h"
+#include "functions.h"
+#include "states.h"
+/*
+// Global variables for testing
+unsigned int pos = 0; // in mm can be just int
+float metres = 0.0; // in metres
+unsigned int flr = 1; // floor number
+char str[20];
+int go = 0;
+int b;
+
+int test_buttons(void){
+    if (open_button_pin && !close_button_pin){
+        return 1; // Open button is pressed
+    } else if (!open_button_pin && !close_button_pin){
+        return 2; // Close button is pressed
+    } else if (open_button_pin && close_button_pin){
+        return 3; // Both buttons are pressed
+    }
+    return 0; // No buttons are pressed
+}
+*/
+// Content of file: functions.h
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
+
+#include <xc.h>
+#include <stdio.h>
+#include <stdint.h>
+#include "lcd.h"
+
+// State Definitions
+enum State { IDLE, MOVING_UP, MOVING_DOWN, DOORS_OPEN, EMERGENCY, MAINTENANCE } ;
+enum ElevatorStatus { ELEVATOR_OK, ELEVATOR_FAULT } ;
+enum DoorState { DOOR_OPEN, DOOR_CLOSED, DOOR_AJAR, DOOR_ERROR } ;
+enum Direction { DOWN = 0, UP = 1, STOPPED = 2 };
+
+// Function Declarations
+// Elevator control functions
+void door_control(enum DoorState state);
+int door_check(void);
+void elevator_status(void);
+void door(unsigned int open_close);
+
+// Button control functions
+int buttons_out(void);
+int buttons_in(void);
+
+// Movement and direction functions
+void move(unsigned int speed, enum Direction dir);
+void move_to_floor(int floor);
+void motor_stop(void);
+void motor_direction(int direction);
+void motor_speed_control(int speed);
+
+// Sensor and ADC functions
+unsigned int get_position_mm(void);
+unsigned int get_pos_floor(unsigned int pos); 
+unsigned int read_adc(unsigned int ch);
+
+// Display functions
+void display_status(enum ElevatorStatus status);
+void init_LCD(void);
+void lcd_clear(void); 
+void lcd_cmd(unsigned char cmd);
+void display_flr(unsigned int position);
+void display_mm(unsigned int pos);
+void lcd_puts(const char* s);
+void lcd_data(unsigned char data);
+void lcd_str(const char* str);
+
+// Timer and delay functions
+void delay_ms(unsigned int milliseconds);
+void start_door_open_timer(int seconds);
+void setup_timer(void);
+int door_o_timer_exp();
+
+// Interrupt Service Routines
+void __interrupt() TimerISR(void);
+void __interrupt(high_priority) isr(void);
+void __interrupt(low_priority) isr(void);
+
+// Initialization functions
+void init_adc(void);
+void init_buttons(void);
+void init_door(void);
+void init_IO(void);
+void init_LCD(void);
+void init_motor_control(void);
+void init_pwm(void);
+void init_reset(void);
+
+// Utility functions
+void buzzer_control(int state);
+void check_door_status(void);
+int ajar(void);
+void update_position(void);
+void update_status_lights(enum DoorState doorState, int floor);
+void updateUI(void);
+
+// Test and debugging functions
+int test_buttons(void);
+
+// Global Variables
+extern unsigned int door_open_timer;    // Door-open timer flag
+extern unsigned int pos;                // Position of the elevator in mm
+extern unsigned int flr;                // Current floor as an integer
+extern unsigned int nearestFloor;       // Nearest floor based on current position
+extern volatile unsigned int adc_result; // ADC result variable
+extern volatile unsigned char adc_ready; // Flag to check if ADC result is ready
+extern volatile unsigned char timer_expired_flag; // Timer flag
+extern int currentFloor;                // Global variable to store the current floor
+extern enum State currentState;         // Current state of the elevator
+
+// Constants
+#define _XTAL_FREQ 20000000 //Set frequency for microcontrollers crystal osillator for 20 MHz
+#pragma config WDT = OFF //Turn off WDT
+#define FLR1 0      // Floor 1 position in mm
+#define FLR2 2800   // Floor 2 position in mm
+#define FLR3 5600   // Floor 3 position in mm
+#define TOL  125    // Tolerance in mm
+#define UP_SPEED    100 // Define these as appropriate for elevator <- to be checked by mechanical team
+#define DOWN_SPEED  100 // Define these as appropriate for elevator <- to be checked by mechanical team
+#define _PR2_VALUE_ 254 // PR2 value for PWM frequency setup
+#define CLOSE 0 // Door closed
+#define OPEN 1  // Door opened
+#define DOWN 0  // Elevator moving down
+#define UP 1    // Elevator moving up
+#define STOP 2 // Stop elevator movement
+
+// Pins
+#define A PORTBbits.RB0     // 1st floor up
+#define B PORTBbits.RB1     // 2nd floor up
+#define C PORTBbits.RB2     // 2nd floor down
+#define D PORTBbits.RB3     // 3rd floor down
+#define F1 PORTBbits.RB4    // elevator - floor 1
+#define F2 PORTBbits.RB5    // elevator - floor 2  
+#define F3 PORTBbits.RB6    // elevator - floor 3
+#define UPDN LATBbits.LB7    // UPDN or U as label
+#define SPEED LATCbits.LC1   // SPEED as label PWM output
+#define buzzer_pin PORTCbits.RC1 // Buzzer is connected to RC1
+#define open_button_pin PORTAbits.RA3 // Open button is connected to RA3
+#define close_button_pin PORTAbits.RA4 // Close button is connected to RA4
+#define DOOR_STATUS_PIN PORTEbits.RE0   // RE0 to read the door status
+#define DOOR_CONTROL_PIN LATCbits.LATC3 //  Door control
+#define DOOR_AJAR_PIN PORTBbits.RB7 // Door ajar Set RB2 as input
+#define RELAY_CONTROL LATCbits.LC0   // Relay control
+
+#endif // FUNCTIONS_H
+// Content of file: lcd.h
+#ifndef LCD_H
+#define LCD_H
+
+#include <xc.h> // Include processor files.
+#include "functions.h"
+#include "states.h"
+
+// Define control pins more explicitly
+#define LCD_RS LATEbits.LATE1
+#define LCD_EN LATEbits.LATE2
+#define LCD_DATA PORTD
+
+// LCD Commands
+#define LCD_ON  0x0F
+#define LCD_OFF 0x08
+#define LCD_CLR 0x01
+#define LCD_L1  0x80
+#define LCD_L2  0xC0
+#define LCD_CFG 0x38   // Assuming configuration for 8-bit, 2 line mode
+
+// Define LCD line starting addresses or commands
+#define L_L1 0x00  // Example for the first line
+#define L_L2 0x40  // Typically the start of the second line for 2x16 LCDs
+
+#define DOOR_OPEN_LED_PIN 0
+#define FLOOR1_LED_PIN 1
+#define FLOOR2_LED_PIN 2
+#define FLOOR3_LED_PIN 3
+
+#endif // LCD_H
+// Content of file: states.h
+#ifndef STATES_H
+#define STATES_H
+
+
+
+#endif //STATES_H
+// Content of file: system_test.h
+#include <xc.h> // include processor file
+
